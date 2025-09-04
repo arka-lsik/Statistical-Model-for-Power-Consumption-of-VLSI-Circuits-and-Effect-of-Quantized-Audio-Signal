@@ -1,5 +1,5 @@
-% Synthetic data generation creates new, artificial datasets that statistically mirror real-world data (my case I taken this data from one of Lab mate who
-% is crrently working on this type of similar data recorded audio form 10 different places)
+% Synthetic data generation creates new, artificial datasets that statistically mirror real-world data 
+% (my case I taken this data from one of Lab mate whois crrently working on this type of similar data recorded audio form 10 different places)
 % without copying specific observations, making it similar to real data in its patterns and structure but not identical
 
 clc;
