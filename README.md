@@ -9,13 +9,13 @@ This study explores how the noise came and average distortion is generate at det
 🎯 **Problem Statement**
 
 ● *Data Compression and Quantization in Bandwidth-Limited Channels*:
-• When transmitting random source samples (e.g., Gaussian or mixture of Gaussians) over BW-limited channels, effective data compression is crucial to reduce transmission cost.
-• Quantization is a necessary step in compression, but it inherently introduces information loss, reducing the accuracy of the original data representation.
-• This becomes critical when quantized data is further used for downstream tasks such as clustering, where the distortion can significantly affect the final results.
-• The Expectation-Maximization (EM) algorithm has been found to help mitigate the negative effects of quantization in clustering tasks, improving the robustness of data representation.
+- When transmitting random source samples (e.g., Gaussian or mixture of Gaussians) over BW-limited channels, effective data compression is crucial to reduce transmission cost.
+- Quantization is a necessary step in compression, but it inherently introduces information loss, reducing the accuracy of the original data representation.
+- This becomes critical when quantized data is further used for downstream tasks such as clustering, where the distortion can significantly affect the final results.
+- The Expectation-Maximization (EM) algorithm has been found to help mitigate the negative effects of quantization in clustering tasks, improving the robustness of data representation.
 
 ● *Research Shift Towards VLSI Circuit Analysis for Power-Aware Design*:
-• Initial focus was on speech signal processing and quantization impact reduction through clustering-based pipelines.
-• Current research direction shifted toward a more impactful area: Circuit Analysis in VLSI Design.
-• The main goal is to estimate and model pre-microarchitectural data to support power-aware design.
-• This approach aims to reduce costly redesigns and improve timing efficiency by providing accurate early-stage power and performance estimations.
+- Initial focus was on speech signal processing and quantization impact reduction through clustering-based pipelines.
+- Current research direction shifted toward a more impactful area: Circuit Analysis in VLSI Design.
+- The main goal is to estimate and model pre-microarchitectural data to support power-aware design.
+- This approach aims to reduce costly redesigns and improve timing efficiency by providing accurate early-stage power and performance estimations.
