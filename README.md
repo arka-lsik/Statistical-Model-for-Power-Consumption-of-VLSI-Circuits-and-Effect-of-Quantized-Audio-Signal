@@ -2,7 +2,20 @@
 
 ## 📚 **Abstarct**
 
-This study explores how the noise came and how there is average distortion is generate at detection end of a practical end-to-end communication systems. The next part of this study explores where noise is not only introduced at the signal receiving end but also can accumulate at intermediate stages, particularly at quantization, source encoding \& channel encoding etc. Now it reflects the effect of data compression required by transmission over bandwidth-limited channels. In this context, I modeled the big data using a Gaussian mixture model (GMM), which undergoes uniform and entropy-coded quantization before clustering through the expectation-maximization (EM) algorithm. The analysis explores how clustering accuracy is affected by the number of quantization levels. This effective unsupervised machine learning algorithm, based on distribution-based clustering, can also address challenges in the VLSI design flow domain (including CPU/GPU design), particularly in estimating and optimizing power consumption of VLSI circuits. The approach is modeled through statistical predictive analysis and evaluated using several performance metrics for comprehensive comparison. Overall, this study provides a framework that connects the solution of signal processing problems to VLSI circuit domain challenges through the use of mathematical modeling.
+This study explores how the noise came and average distortion is generate at detection end of practical end-to-end communication systems. The next part of this study explores where noise is not only introduced at the signal receiving end but also can accumulate at intermediate stages, particularly at quantization, source encoding \& channel encoding etc. Now it reflects the effect of data compression required by transmission over bandwidth-limited channels. In this context, I modeled the big data using a Gaussian mixture model (GMM), which undergoes uniform and entropy-coded quantization before clustering through the expectation-maximization (EM) algorithm. The analysis explores how clustering accuracy is affected by the number of quantization levels. This effective unsupervised machine learning algorithm, based on distribution-based clustering, can also address challenges in the VLSI design flow domain (including CPU/GPU design), particularly in estimating and optimizing power consumption of VLSI circuits. The approach is modeled through statistical predictive analysis and evaluated using several performance metrics for comprehensive comparison. Overall, this study provides a framework that connects the solution of signal processing problems to VLSI circuit domain challenges through the use of mathematical modeling.
 
+---→  **Keyword** : GMM(Gaussian Mixture Model), Noise, Quantization, EM. Power, Estimation
 
+🎯 **Problem Statement**
 
+● *Data Compression and Quantization in Bandwidth-Limited Channels*:
+• When transmitting random source samples (e.g., Gaussian or mixture of Gaussians) over BW-limited channels, effective data compression is crucial to reduce transmission cost.
+• Quantization is a necessary step in compression, but it inherently introduces information loss, reducing the accuracy of the original data representation.
+• This becomes critical when quantized data is further used for downstream tasks such as clustering, where the distortion can significantly affect the final results.
+• The Expectation-Maximization (EM) algorithm has been found to help mitigate the negative effects of quantization in clustering tasks, improving the robustness of data representation.
+
+● *Research Shift Towards VLSI Circuit Analysis for Power-Aware Design*:
+• Initial focus was on speech signal processing and quantization impact reduction through clustering-based pipelines.
+• Current research direction shifted toward a more impactful area: Circuit Analysis in VLSI Design.
+• The main goal is to estimate and model pre-microarchitectural data to support power-aware design.
+• This approach aims to reduce costly redesigns and improve timing efficiency by providing accurate early-stage power and performance estimations.
