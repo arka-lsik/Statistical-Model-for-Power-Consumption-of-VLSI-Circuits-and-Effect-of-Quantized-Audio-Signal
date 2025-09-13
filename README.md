@@ -19,3 +19,8 @@ This study explores how the noise came and average distortion is generate at det
 - Current research direction shifted toward a more impactful area: Circuit Analysis in VLSI Design.
 - The main goal is to estimate and model pre-microarchitectural data to support power-aware design.
 - This approach aims to reduce costly redesigns and improve timing efficiency by providing accurate early-stage power and performance estimations.
+
+🚀 **Framework**
+- Part 1: Is to choose the proper quantizer and its effect of quantization on GMM-based data model and applying EM algorithm on it for better clustering of recorded audio from different environment.
+- Part 2: That’s GMM (for better result conditional GMM) and EM algorithm have a better impact of clustering and prediction on ”ISCAS’89 sequential Benchmark circuits”
+data.
