@@ -27,7 +27,7 @@ data & "PATMOS'17"  quad-core ARM Cortex A15 CPU data for differernt events of a
 
 ## 📝 **Details of Algorithm Pipeline for Audio processing with effect of Quantization**
 
-![Workflow thninking process step by step](workflow.png)
+![Workflow thninking process step by step](Results A-to-D/workflow.png)
 
 
 
