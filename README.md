@@ -25,9 +25,9 @@ This study explores how the noise came and average distortion is generate at det
 - Part 2: That’s GMM (for better result conditional GMM) and EM algorithm have a better impact of clustering and prediction on ”ISCAS’89 sequential Benchmark circuits”
 data & "PATMOS'17"  quad-core ARM Cortex A15 CPU data for differernt events of activity.
 
-**Details of Algorithm Pipeline for Audio processing with effect of Quantization**
+## 📝 **Details of Algorithm Pipeline for Audio processing with effect of Quantization**
 
-
+![Workflow thninking process step by step](workflow.png)
 
 
 
