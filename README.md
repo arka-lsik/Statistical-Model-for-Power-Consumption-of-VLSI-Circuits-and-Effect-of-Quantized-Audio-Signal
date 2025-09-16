@@ -27,9 +27,9 @@ data & "PATMOS'17"  quad-core ARM Cortex A15 CPU data for differernt events of a
 
 ## 📝 **Details of Algorithm Pipeline for Audio processing with effect of Quantization**
 
-![Workflow thinking process step by step](Results%10A-to-D/workflow.png)
+![Workflow thinking process step by step](Results%20A-to-D/workflow.png)
 
-By looking this whole block wise diagram, I can simply say that the $\textcolor{green}{1st part}$ where if you carefully observe this is a end to end communication block. In that phase we generally talk about noise(Gaussian Noise) when we detect or estimate the signal at recevier end. But our focus of primary work shifted to the <code style="color: green">Analog to Digital Converter part for signal processing application.</code> There Quantization Block which can contribute 7-8 % of noise in whole system. 
+By looking this whole block wise diagram, I can simply say that the $\textcolor{green}{1st part}$ where if you carefully observe this is a end to end communication block. In that phase we generally talk about noise(Gaussian Noise) when we detect or estimate the signal at recevier end. But our focus of primary work shifted to the <code $\textcolor{yellow}{Analog to Digital Converter part for signal processing application}$ There Quantization Block which can contribute 7-8 % of noise in whole system. 
 
-Now the<code style="color: greenyellow">2nd part.</code> will be detailed analysis over Quantiation efect with different qunatization levels(L) for a complex Gaussian Mixture Modeled base digital signal. Where we done the experiments on synthetically generated Audio signal data passed through the one simple Uniform Quantizer and one iterative Entropy-Coded Quantizer. The after quantiation loss of originality of signal analyzed through estimation of signal with Expectation-Maximization iterative algorithm. Performnce evalated with MSE & MAE evaluation metrices.
+Now the $\textcolor{green}{2nd part}$ will be detailed analysis over Quantiation efect with different qunatization levels(L) for a complex Gaussian Mixture Modeled base digital signal. Where we done the experiments on synthetically generated Audio signal data passed through the one simple Uniform Quantizer and one iterative Entropy-Coded Quantizer. The after quantiation loss of originality of signal analyzed through estimation of signal with Expectation-Maximization iterative algorithm. Performnce evalated with MSE & MAE evaluation metrices.
 
