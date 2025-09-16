@@ -33,6 +33,6 @@ By looking this whole block wise diagram, I can simply say that the $\textcolor{
 
 Now the $\textcolor{green}{2nd \space part}$ will be detailed analysis over Quantiation efect with different qunatization levels(L) for a complex Gaussian Mixture Modeled base digital signal. Where we done the experiments on synthetically generated Audio signal data passed through the one simple Uniform Quantizer and one iterative Entropy-Coded Quantizer. The after quantiation loss of originality of signal analyzed through estimation of signal with Expectation-Maximization iterative algorithm. Performnce evalated with MSE & MAE evaluation metrices.
 
-$\textcolor{Blue}{To \space know \space for  \space mathemtical \space foundation \sace of \space this \space part \space of \space this \space project \space kindly \space visit \space either \space the \space PDF \space attached \space *MTP* \space or \space [Link](https://www.google.com)}$.
+$$\textcolor{Blue}{To \space know \space for  \space mathemtical \space foundation \sace of \space this \space part \space of \space this \space project \space kindly \space visit \space either \space the \space PDF \space attached \space *MTP* \space or \space [Link](https://www.google.com)}$$.
 
 ## 📝 **Details of Algorithm Pipeline for Power Estimation of VLSI Circuits**
