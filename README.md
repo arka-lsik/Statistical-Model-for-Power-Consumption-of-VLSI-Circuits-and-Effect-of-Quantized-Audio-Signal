@@ -33,39 +33,32 @@ By looking this whole block wise diagram, I can simply say that the $\textcolor{
 
 Now the $\textcolor{green}{2nd \space part}$ will be detailed analysis over Quantiation efect with different qunatization levels(L) for a complex Gaussian Mixture Modeled base digital signal. Where we done the experiments on synthetically generated Audio signal data passed through the one simple Uniform Quantizer and one iterative Entropy-Coded Quantizer. The after quantiation loss of originality of signal analyzed through estimation of signal with Expectation-Maximization iterative algorithm. Performnce evalated with MSE & MAE evaluation metrices.
 
-$\textcolor{blue}{To \space know \space for \space mathemtical \space foundation \sace of \space this \space part \space of \space this \space project \space kindly \space visit \space either \space the \space PDF \space attached \space *MTP* \space or $ [Link](https://www.google.com)}.
+$\textcolor{green}{To \space know \space for \space mathemtical \space foundation \sace of \space this \space part \space of \space this \space project \space kindly \space visit \space either \space the \space PDF \space attached \space *MTP* \space or $ [Link](https://www.google.com)}.
 
 ## 📝 **Details of Algorithm Pipeline for Power Estimation of VLSI Circuits**
-flowchart TD
-    A[📥 Step 1: Data Preprocessing & Feature Engineering]
-    A1[📂 Load Dataset: Dataset_PATMOS_2017.xlsx / Fig.4&5.csv]
-    A2[⚙️ Select Features]
-    A3[🎯 Target: Actual Power Consumption]
-    A4[🧹 Data Cleaning (Handle missing values, outliers)]
-    A5[📊 Feature Scaling (StandardScaler)]
 
-    B[➗ Step 2: Data Splitting]
-    B1[Split Data: 80% Training, 20% Testing]
+Step 1: Data Preprocessing & Feature Engineering
+  ├── Load Dataset (Dataset_PATMOS_2017.xlsx / Fig4&5.csv)
+  ├── Select Features (Frequency, Voltage, Core_Count, Hardware Counters)
+  ├── Target: Actual Power Consumption
+  ├── Data Cleaning (Missing values, outliers)
+  └── Feature Scaling (StandardScaler)
 
-    C[🏋️‍♀️ Step 3: Model Training]
-    C1[📉 Baseline Model: Linear Regression]
-    C2[⚡ Advanced Models: SVR, Random Forest, Simple Neural Network]
-    C3[🔀 GMM-EM Hybrid Model]
-    C3a[📊 Cluster Workloads using GMM-EM]
-    C3b[📈 Train Separate Regression Model per Cluster]
+Step 2: Data Splitting
+  └── 80% Training / 20% Testing
 
-    D[📊 Step 4: Model Evaluation]
-    D1[📏 Metrics: MAPE, MAE, RMSE, R²]
-    D2[📊 Compare Models’ Performance]
+Step 3: Model Training
+  ├── Baseline: Linear Regression
+  ├── Advanced Models: SVR, Random Forest, Neural Network
+  └── GMM-EM Hybrid Model
+       ├── Cluster Workloads using GMM-EM
+       └── Train separate Regression per Cluster
 
-    E[⚙️ Step 5: Hyperparameter Tuning]
-    E1[🔍 Grid Search + Cross-Validation]
-    E2[🎯 Best Model Selection (Final Evaluation)]
+Step 4: Model Evaluation
+  ├── Metrics: MAPE, MAE, RMSE, R²
+  └── Compare Model Performance
 
-    A --> A1 --> A2 --> A3 --> A4 --> A5 --> B
-    B --> B1 --> C
-    C --> C1
-    C --> C2
-    C --> C3 --> C3a --> C3b --> D
-    D --> D1 --> D2 --> E
-    E --> E1 --> E2
+Step 5: Hyperparameter Tuning
+  ├── Grid Search + Cross-Validation
+  └── Final Model Selection (Best Accuracy)
+
