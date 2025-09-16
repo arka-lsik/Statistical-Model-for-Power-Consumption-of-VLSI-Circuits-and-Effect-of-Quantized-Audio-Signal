@@ -33,32 +33,77 @@ By looking this whole block wise diagram, I can simply say that the $\textcolor{
 
 Now the $\textcolor{green}{2nd \space part}$ will be detailed analysis over Quantiation efect with different qunatization levels(L) for a complex Gaussian Mixture Modeled base digital signal. Where we done the experiments on synthetically generated Audio signal data passed through the one simple Uniform Quantizer and one iterative Entropy-Coded Quantizer. The after quantiation loss of originality of signal analyzed through estimation of signal with Expectation-Maximization iterative algorithm. Performnce evalated with MSE & MAE evaluation metrices.
 
-$\textcolor{green}{To \space know \space for \space mathemtical \space foundation \sace of \space this \space part \space of \space this \space project \space kindly \space visit \space either \space the \space PDF \space attached \space *MTP* \space or $ [Link](https://www.google.com)}.
+$\textcolor{green}{To \space know \space for \space mathemtical \space foundation \sace of \space this \space part \space of \space this \space project \space kindly \space visit \space either \space the \space PDF \space attached \space *MTP* \space or} $ [Link](https://www.google.com).
 
 ## 📝 **Details of Algorithm Pipeline for Power Estimation of VLSI Circuits**
 
-Step 1: Data Preprocessing & Feature Engineering
-  ├── Load Dataset (Dataset_PATMOS_2017.xlsx / Fig4&5.csv)
-  ├── Select Features (Frequency, Voltage, Core_Count, Hardware Counters)
-  ├── Target: Actual Power Consumption
-  ├── Data Cleaning (Missing values, outliers)
-  └── Feature Scaling (StandardScaler)
-
-Step 2: Data Splitting
-  └── 80% Training / 20% Testing
-
-Step 3: Model Training
-  ├── Baseline: Linear Regression
-  ├── Advanced Models: SVR, Random Forest, Neural Network
-  └── GMM-EM Hybrid Model
-       ├── Cluster Workloads using GMM-EM
-       └── Train separate Regression per Cluster
-
-Step 4: Model Evaluation
-  ├── Metrics: MAPE, MAE, RMSE, R²
-  └── Compare Model Performance
-
-Step 5: Hyperparameter Tuning
-  ├── Grid Search + Cross-Validation
-  └── Final Model Selection (Best Accuracy)
-
+     Start
+       │
+       ▼
+📥 Step 1: Data Preprocessing & Feature Engineering
+       │
+       ▼
+ Load Dataset (Dataset_PATMOS_2017.xlsx / Fig4&5.csv)
+       │
+       ▼
+ Select Features:
+   - Frequency
+   - Voltage
+   - Core_Count
+   - Hardware Performance Counters (e.g., EPH_0x11:...)
+       │
+       ▼
+ Set Target Variable → Actual Power Consumption
+       │
+       ▼
+ Data Cleaning:
+   - Handle missing values
+   - Handle outliers
+       │
+       ▼
+ Feature Scaling (StandardScaler)
+       │
+       ▼
+➗ Step 2: Data Splitting
+       │
+       ▼
+ Split Data:
+   - 80% Training
+   - 20% Testing
+       │
+       ▼
+🏋️‍♀️ Step 3: Model Training
+       │
+       ├── Baseline Model: Linear Regression
+       │
+       ├── Advanced Models:
+       │     - SVR
+       │     - Random Forest
+       │     - Simple Neural Network
+       │
+       └── GMM-EM Hybrid Model:
+              │
+              ├── Cluster Workloads using GMM-EM
+              │
+              └── Train Separate Regression Model per Cluster
+       │
+       ▼
+📊 Step 4: Model Evaluation
+       │
+       ├── Metrics:
+       │     - MAPE
+       │     - MAE
+       │     - RMSE
+       │     - R²
+       │
+       └── Compare Performance of All Models
+       │
+       ▼
+⚙️ Step 5: Hyperparameter Tuning
+       │
+       ├── Grid Search + Cross-Validation
+       │
+       └── Final Model Selection (Best Performance)
+       │
+       ▼
+      End
