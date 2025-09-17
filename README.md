@@ -152,13 +152,14 @@ $$
 z = \begin{bmatrix} x \\ y \end{bmatrix}
 $$
 
-Then for each component \( k \):
+  Then for each component \( k \):
 
 $$
 \mu_k = \begin{bmatrix} \mu_x^{(k)} \\ \mu_y^{(k)} \end{bmatrix}
 $$
 
 where
+
 - \( \mu_x^{(k)} \) is \( D \times 1 \)
 - \( \mu_y^{(k)} \) is \( 1 \times 1 \).
 
@@ -170,7 +171,9 @@ $$
 \Sigma_{yx}^{(k)} & \Sigma_{yy}^{(k)}
 \end{bmatrix}
 $$
+
 where
+
 - \( \Sigma_{xx}^{(k)} \) is \( D \times D \),
 - \( \Sigma_{xy}^{(k)} \) is \( D \times 1 \),
 - \( \Sigma_{yx}^{(k)} \) is \( 1 \times D \),
@@ -182,6 +185,7 @@ where
 $$
 \mu_{y \mid x}^{(k)} = \mu_y^{(k)} + \Sigma_{yx}^{(k)} \left( \Sigma_{xx}^{(k)} \right)^{-1} (x - \mu_x^{(k)})
 $$
+
   -Conditional Variance: 
 
   $$
@@ -189,11 +193,12 @@ $$
 $$
 
 - Prediction for the GMM: Since the overall GMM is a mixture of Gaussians, the conditional distribution p(Y∣x) is also a mixture of Gaussians.
+  
 $$
 p(Y \mid x) = \sum_{k=1}^{K} \hat{\pi}_k(x) \, \mathcal{N}\left(Y \mid \mu_{y \mid x}^{(k)}, \Sigma_{yy \mid x}^{(k)}\right)
 $$
 
-Where \hat{\pi}_k(x) is the posterior probability of component k given observation x:
+Where $$\hat{\pi}_k(x)$$ is the posterior probability of component k given observation x:
 
 
 
