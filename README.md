@@ -78,9 +78,8 @@ The core idea is to model the joint distribution of input features $\textcolor{g
 - Goal: To learn a function f(X)→Y such that for a new circuit with features x, we can predict its power consumption y.
 
 *2. Data Preprocessing: Normalization (Z-score Standardization)*
-- Purpose:
-- -Scale Invariance: Prevents features with larger numerical ranges from disproportionately influencing the model. If 'GATE' count ranges from 10 to 1000 and 'INV' count from 1 to 10, 'GATE' would dominate calculations without scaling.
-- -Improved Convergence for EM: Many iterative optimization algorithms (like EM for GMMs) converge faster and more reliably when features are on a similar scale. So this a necessary steps.
+- Purpose: Scale Invariance: Prevents features with larger numerical ranges from disproportionately influencing the model. If 'GATE' count ranges from 10 to 1000 and 'INV' count from 1 to 10, 'GATE' would dominate calculations without scaling.
+- Improved Convergence for EM: Many iterative optimization algorithms (like EM for GMMs) converge faster and more reliably when features are on a similar scale. So this a necessary steps.
 - For each feature (column) in X and for Y:
   The equations are:
 
@@ -92,5 +91,9 @@ $$
 y'_i = \frac{y_i - \mu_Y}{\sigma_Y}
 $$
 
-
+Where:
+- $$x'_{ij}$$ is the normalized value of the i-th data point for the j-th feature.
+- $$\mu_j$$ is the mean of the j-th feature.
+- $$\sigma_j$$ s the standard deviation of the j-th feature.
+- $$\mu_Y and \sigma_Y$$ are the mean and standard deviation of the target variable Y
 
