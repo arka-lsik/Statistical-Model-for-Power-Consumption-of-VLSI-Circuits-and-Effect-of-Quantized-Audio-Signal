@@ -97,9 +97,9 @@ Where:
 - $$\sigma_j$$ s the standard deviation of the j-th feature.
 - $$\mu_Y , \sigma_Y$$ are the mean and standard deviation of the target variable Y
 In code particularly if I say
-- [X_norm, \mu_X, \sigma_X] = zscore(X); performs this for features.
-- Y_norm = (Y - mean(Y)) / std(Y); performs this for the target.
-- XY_norm = [X_norm Y_norm]; combines them into a single matrix for GMM fitting. Each row now represents a D+1 dimensional data point $$z_n = [x_n, y_n]$$ in the normalized space.
+- $$[X_norm, \mu_X, \sigma_X]$$ = zscore(X); performs this for features.
+- $$Y_norm = (Y - mean(Y)) / std(Y)$$; performs this for the target.
+- $$XY_norm = [X_norm Y_norm]$$; combines them into a single matrix for GMM fitting. Each row now represents a D+1 dimensional data point $$z_n = [x_n, y_n]$$ in the normalized space.
 
 *3. Gaussian Mixture Model (GMM) -*
 - $\textcolor{red}{Concept:}$ A GMM assumes that your data points ($$z_n$$ which are $$[x_n, y_n]$$ in my case) are generated from a finite number of underlying Gaussian (Normal) distributions. These distributions are mixed together with certain probabilities.
@@ -160,7 +160,7 @@ $$
 
 where
 
-- $$\( \mu_x^{(k)} \) is \( D \times 1 \), \( \mu_y^{(k)} \) is \( 1 \times 1 \) $$
+- $$\( \mu_x^{(k)} \) is \( D \times 1 \), \space \( \mu_y^{(k)} \) is \( 1 \times 1 \) $$
 
 And the $\textcolor{red}{covariance \space matrix:}$
 
@@ -172,10 +172,7 @@ $$
 $$
 
 where
-- $$\Sigma_{xx}^{(k)}$$ is \(D \times D\)  
-- $$\Sigma_{xy}^{(k)}$$ is \(D \times 1\)  
-- $$\Sigma_{yx}^{(k)}$$ is \(1 \times D\)  
-- $$\Sigma_{yy}^{(k)}$$ is \(1 \times 1\)  
+- $$\Sigma_{xx}^{(k)} is \(D \times D\), \space \Sigma_{xy}^{(k)} is \(D \times 1\), \space \Sigma_{yx}^{(k)} is \(1 \times D\), \space \Sigma_{yy}^{(k)} is \(1 \times 1\)  
 
 
 - $\textcolor{red}{Conditional \space Gaussian \space Properties:}$ If a joint distribution p(x,y) is Gaussian, then the conditional distribution p(y∣x) is also Gaussian, with:
@@ -191,13 +188,33 @@ $$
 \Sigma_{yy \mid x}^{(k)} = \Sigma_{yy}^{(k)} - \Sigma_{yx}^{(k)} \left( \Sigma_{xx}^{(k)} \right)^{-1} \Sigma_{xy}^{(k)}
 $$
 
-- $\textcolor{red}{Prediction \space for \space the \space GMM:}$ Since the overall GMM is a mixture of Gaussians, the conditional distribution p(Y∣x) is also a mixture of Gaussians.
+  - $\textcolor{red}{Prediction \space for \space the \space GMM:}$ Since the overall GMM is a mixture of Gaussians, the conditional distribution p(Y∣x) is also a mixture of Gaussians.
   
 $$
 p(Y \mid x) = \sum_{k=1}^{K} \hat{\pi}_k(x) \, \mathcal{N}\left(Y \mid \mu_{y \mid x}^{(k)}, \Sigma_{yy \mid x}^{(k)}\right)
 $$
 
 Where $$\hat{\pi}_k(x)$$ is the posterior probability of component k given observation x:
+
+$$
+\hat{\pi}_k(x) = p(k \mid x) 
+= \frac{\pi_k \, \mathcal{N}\!\left(x \mid \mu_x^{(k)}, \Sigma_{xx}^{(k)}\right)}
+{\sum_{j=1}^{K} \pi_j \, \mathcal{N}\!\left(x \mid \mu_x^{(j)}, \Sigma_{xx}^{(j)}\right)}
+$$
+
+  - $\textcolor{red}{My prediction:}$ $$Y_pred$$ To get a single point prediction for Y given x, calculates the expected value of Y given x, which is the weighted average of the conditional means from each component:
+
+    $$
+\mathbb{E}[Y \mid x] = \sum_{k=1}^{K} \hat{\pi}_k(x) \, \mu_{y \mid x}^{(k)}
+$$
+
+ - $textcolor{red}{Uncertainty:}$ There attempts to calculate the variance of the prediction. For a GMM, the total conditional variance Var[Y∣x] is not simply the weighted average of $$\Sigma_{yy \mid x}^{(k)}$$, It needs to account for both the variance within each component's conditional distribution and the variance between the conditional means of the different components. The correct formula for the variance of a mixture is:
+
+   $$
+\mathrm{Var}[Y \mid x] = \sum_{k=1}^{K} \hat{\pi}_k(x) \left( \Sigma_{yy \mid x}^{(k)} + \big( \mu_{y \mid x}^{(k)} - \mathbb{E}[Y \mid x] \big)^2 \right)
+$$
+
+This allows me to estimate not just the predicted power but also its associated uncertainty.
 
 
 
