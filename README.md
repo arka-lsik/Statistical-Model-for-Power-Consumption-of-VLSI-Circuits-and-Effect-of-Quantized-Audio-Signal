@@ -163,7 +163,7 @@ where
 - \( \mu_x^{(k)} \) is \( D \times 1 \)
 - \( \mu_y^{(k)} \) is \( 1 \times 1 \).
 
-And the covariance matrix:
+And the $\textcolor{red}{covariance \space matrix:}$
 
 $$
 \Sigma_k = \begin{bmatrix}
@@ -172,27 +172,20 @@ $$
 \end{bmatrix}
 $$
 
-where
-
-- \( \Sigma_{xx}^{(k)} \) is \( D \times D \),
-- \( \Sigma_{xy}^{(k)} \) is \( D \times 1 \),
-- \( \Sigma_{yx}^{(k)} \) is \( 1 \times D \),
-- \( \Sigma_{yy}^{(k)} \) is \( 1 \times 1 \).
-
-- Conditional Gaussian Properties: If a joint distribution p(x,y) is Gaussian, then the conditional distribution p(y∣x) is also Gaussian, with:
-  - Conditional Mean:
+- $\textcolor{red}{Conditional \space Gaussian \space Properties:}$ If a joint distribution p(x,y) is Gaussian, then the conditional distribution p(y∣x) is also Gaussian, with:
+  - $\textcolor{red}{Conditional \space Mean:}$
 
 $$
 \mu_{y \mid x}^{(k)} = \mu_y^{(k)} + \Sigma_{yx}^{(k)} \left( \Sigma_{xx}^{(k)} \right)^{-1} (x - \mu_x^{(k)})
 $$
 
-  -Conditional Variance: 
+  - $\textcolor{red}{Conditional \space Variance:}$ 
 
   $$
 \Sigma_{yy \mid x}^{(k)} = \Sigma_{yy}^{(k)} - \Sigma_{yx}^{(k)} \left( \Sigma_{xx}^{(k)} \right)^{-1} \Sigma_{xy}^{(k)}
 $$
 
-- Prediction for the GMM: Since the overall GMM is a mixture of Gaussians, the conditional distribution p(Y∣x) is also a mixture of Gaussians.
+- $\textcolor{red}{Prediction \space for \space the \space GMM:}$ Since the overall GMM is a mixture of Gaussians, the conditional distribution p(Y∣x) is also a mixture of Gaussians.
   
 $$
 p(Y \mid x) = \sum_{k=1}^{K} \hat{\pi}_k(x) \, \mathcal{N}\left(Y \mid \mu_{y \mid x}^{(k)}, \Sigma_{yy \mid x}^{(k)}\right)
