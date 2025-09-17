@@ -101,13 +101,15 @@ In code particularly if I say
 - Ynorm = (Y - mean(Y)) / std(Y); performs this for the target.
 - XYnorm = [Xnorm Ynorm]; combines them into a single matrix for GMM fitting. Each row now represents a D+1 dimensional data point $$z_n = [x_n, y_n]$$ in the normalized space.
 
-*3. Gaussian Mixture Model (GMM) - The Core Idea*
-- Concept: A GMM assumes that your data points ($$z_n$$ which are $$[x_n, y_n]$$ in my case) are generated from a finite number of underlying Gaussian (Normal) distributions. These distributions are mixed together with certain probabilities.
-- Why for Regression? Instead of directly trying to model the relationship Y=f(X), GMMs allow to model the joint probability distribution p(X,Y). Once we have p(X,Y), we can derive the conditional probability distribution p(Y∣X) to make predictions.
-- Mathematical Representation: The probability density function (PDF) of a GMM for a data point z is given by:
+*3. Gaussian Mixture Model (GMM) -*
+- $textcolor{red}{Concept:}$ A GMM assumes that your data points ($$z_n$$ which are $$[x_n, y_n]$$ in my case) are generated from a finite number of underlying Gaussian (Normal) distributions. These distributions are mixed together with certain probabilities.
+- $textcolor{red}{Why \space for \space Regression?}$ Instead of directly trying to model the relationship Y=f(X), GMMs allow to model the joint probability distribution p(X,Y). Once we have p(X,Y), we can derive the conditional probability distribution p(Y∣X) to make predictions.
+- $textcolor{red}{Mathematical \space Representation:}$ The probability density function (PDF) of a GMM for a data point z is given by -
+  
 $$
 p(z \mid \theta) = \sum_{k=1}^{K} \pi_k \, \mathcal{N}(z \mid \mu_k, \Sigma_k)
 $$
+
 where:
 - K: The number of Gaussian components (mixtures). This is the K you choose in your code.
 - $$\pi_k$$ The mixing coefficient (or prior probability) for the k-th component. It represents the probability that a randomly chosen data point belongs to the k-th component. $$\sum_{k=1}^{K} \pi_k = 1$$
