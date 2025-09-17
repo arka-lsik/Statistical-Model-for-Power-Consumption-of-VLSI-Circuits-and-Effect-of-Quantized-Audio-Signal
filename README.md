@@ -160,8 +160,8 @@ $$
 
 where
 
-- \( \mu_x^{(k)} \) is \( D \times 1 \)
-- \( \mu_y^{(k)} \) is \( 1 \times 1 \).
+- $$\( \mu_x^{(k)} \) is \( D \times 1 \)
+- $$\( \mu_y^{(k)} \) is \( 1 \times 1 \).
 
 And the $\textcolor{red}{covariance \space matrix:}$
 
@@ -171,6 +171,13 @@ $$
 \Sigma_{yx}^{(k)} & \Sigma_{yy}^{(k)}
 \end{bmatrix}
 $$
+
+where
+- $$\Sigma_{xx}^{(k)}$$ is \(D \times D\)  
+- $$\Sigma_{xy}^{(k)}$$ is \(D \times 1\)  
+- $$\Sigma_{yx}^{(k)}$$ is \(1 \times D\)  
+- $$\Sigma_{yy}^{(k)}$$ is \(1 \times 1\)  
+
 
 - $\textcolor{red}{Conditional \space Gaussian \space Properties:}$ If a joint distribution p(x,y) is Gaussian, then the conditional distribution p(y∣x) is also Gaussian, with:
   - $\textcolor{red}{Conditional \space Mean:}$
