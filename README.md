@@ -114,13 +114,13 @@ where:
 - K: The number of Gaussian components (mixtures). This is the K you choose in your code.
 - $$\pi_k$$ The mixing coefficient (or prior probability) for the k-th component. It represents the probability that a randomly chosen data point belongs to the k-th component. $$\sum_{k=1}^{K} \pi_k = 1$$
 - $$\mathcal{N}(z \mid \mu_k, \Sigma_k)$$ The multivariate Gaussian distribution for the k-th component. $$\mu_k$$ The mean vector of the k-th Gaussian component. For your combined data z=[x,y], $$\mu_k$$ will have D+1 elements. $$\Sigma_k$$ The covariance matrix of the k-th Gaussian component. This symmetric matrix describes the spread and correlation of the variables within that component. Its size will be (D+1)×(D+1).
-- θ: The complete set of all GMM parameters that need to be learned from the data: {$$\pi_k$$, $$\mu_k$$, $$\Sigma_k$$ for k=1,…,K}.
+- θ: The complete set of all GMM parameters that need to be learned from the data: $$\pi_k$$, $$\mu_k$$, $$\Sigma_k$$ for k=1,…,K.
   
 
 *4. Expectation-Maximization (EM) Algorithm - Learning the GMM Parameters*
-- $\textcolor{red}{Purpose:} Given the observed data points (XYnorm), the EM algorithm is used to estimate the unknown GMM parameters (θ) when we don't know which data point belongs to which Gaussian component. It's an iterative approach.
-- $\textcolor{red}{The \space "Hidden" \pace Variable:} The "hidden" information is the component assignment for each data point. We don't directly observe this.
-- $\textcolor{red}{}$Initialization:$ Iterative Steps: Start with some initial guesses for {$$\pi_k$$, $$\mu_k$$, $$\Sigma_k$$ (e.g., random, or using k-means clustering to find initial centroids).
+- $\textcolor{red}{Purpose:}$ Given the observed data points (XYnorm), the EM algorithm is used to estimate the unknown GMM parameters (θ) when we don't know which data point belongs to which Gaussian component. It's an iterative approach.
+- $\textcolor{red}{The \space "Hidden" \pace Variable:}$ The "hidden" information is the component assignment for each data point. We don't directly observe this.
+- $\textcolor{red}{Initialization:}$ Iterative Steps: Start with some initial guesses for $$\pi_k$$, $$\mu_k$$, $$\Sigma_k$$ (e.g., random, or using k-means clustering to find initial centroids).
 - $\textcolor{red}{E-step \space (Expectation \space Step):}$ ssuming the current parameters are correct, calculate the "responsibility" (or posterior probability) that each component k has for generating each data point $$z_n$$ -
 
 $$
@@ -129,8 +129,8 @@ $$
 
 This step essentially quantifies "how much" each data point belongs to each cluster. 
 
-- $$\textcolor{red}{M-step \space (Maximization \space step):}$
-  - Using the responsibilities calculated in the E-step, update the GMM parameters($$\pi_k$$, $$\mu_k$$, $$\Sigma_k$$) to maximize the likelihood of the data.
+- $\textcolor{red}{M-step \space (Maximization \space step):}$
+  - Using the responsibilities calculated in the E-step, update the GMM parameters ($$\pi_k$$, $$\mu_k$$, $$\Sigma_k$$) to maximize the likelihood of the data.
   - Effective Number of Points for Component k: $$N_k = \sum_{n=1}^{N} \gamma(z_n, k)$$
   - Update Mixing Coefficients: $$\pi_k^{\text{new}} = \frac{N_k}{N}$$
   - Update Mean Vectors: $$\mu_k^{\text{new}} = \frac{1}{N_k} \sum_{n=1}^{N} \gamma(z_n, k) \, z_n$$
@@ -138,9 +138,61 @@ This step essentially quantifies "how much" each data point belongs to each clus
 
 - Convergence Check: Repeat E and M steps until the change in log-likelihood (or parameters) between iterations is smaller than a predefined tolerance or a maximum number of iterations (MaxIter) is reached.
 - RegularizationValue: This parameter adds a small positive constant to the diagonal of the covariance matrices during the M-step. Its purpose is to:
-  -Prevent Singularity: Covariance matrices can become singular (non-invertible) if a component has very few data points, or if data points within a component lie perfectly on a lower-dimensional subspace. Singular matrices cause mathematical errors.
-  -Improve Stability: It helps stabilize the EM algorithm, especially in early iterations or with problematic data.
+  - Prevent Singularity: Covariance matrices can become singular (non-invertible) if a component has very few data points, or if data points within a component lie perfectly on a lower-dimensional subspace. Singular matrices cause mathematical errors.
+  - Improve Stability: It helps stabilize the EM algorithm, especially in early iterations or with problematic data.
 
+
+*5. Conditional GMM for Prediction*
+Once the GMM parameters ($$\pi_k$$, $$\mu_k$$, $$\Sigma_k$$) are learned from the training data, we can use them to make predictions for new, unseen feature vectors X_new.
+
+The key here is using the properties of multivariate Gaussian distributions:
+- Partitioning the Mean and Covariance: Each component's mean \mu_k and covarience \Sigma_k are partitioned into parts corresponding to features (x) and the target (y).
+Let 
+$$
+z = \begin{bmatrix} x \\ y \end{bmatrix}
+$$
+
+Then for each component \( k \):
+
+$$
+\mu_k = \begin{bmatrix} \mu_x^{(k)} \\ \mu_y^{(k)} \end{bmatrix}
+$$
+where
+- \( \mu_x^{(k)} \) is \( D \times 1 \)
+- \( \mu_y^{(k)} \) is \( 1 \times 1 \).
+
+And the covariance matrix:
+
+$$
+\Sigma_k = \begin{bmatrix}
+\Sigma_{xx}^{(k)} & \Sigma_{xy}^{(k)} \\
+\Sigma_{yx}^{(k)} & \Sigma_{yy}^{(k)}
+\end{bmatrix}
+$$
+where
+- \( \Sigma_{xx}^{(k)} \) is \( D \times D \),
+- \( \Sigma_{xy}^{(k)} \) is \( D \times 1 \),
+- \( \Sigma_{yx}^{(k)} \) is \( 1 \times D \),
+- \( \Sigma_{yy}^{(k)} \) is \( 1 \times 1 \).
+
+- Conditional Gaussian Properties: If a joint distribution p(x,y) is Gaussian, then the conditional distribution p(y∣x) is also Gaussian, with:
+  - Conditional Mean:
+
+$$
+\mu_{y \mid x}^{(k)} = \mu_y^{(k)} + \Sigma_{yx}^{(k)} \left( \Sigma_{xx}^{(k)} \right)^{-1} (x - \mu_x^{(k)})
+$$
+  -Conditional Variance: 
+
+  $$
+\Sigma_{yy \mid x}^{(k)} = \Sigma_{yy}^{(k)} - \Sigma_{yx}^{(k)} \left( \Sigma_{xx}^{(k)} \right)^{-1} \Sigma_{xy}^{(k)}
+$$
+
+- Prediction for the GMM: Since the overall GMM is a mixture of Gaussians, the conditional distribution p(Y∣x) is also a mixture of Gaussians.
+$$
+p(Y \mid x) = \sum_{k=1}^{K} \hat{\pi}_k(x) \, \mathcal{N}\left(Y \mid \mu_{y \mid x}^{(k)}, \Sigma_{yy \mid x}^{(k)}\right)
+$$
+
+Where \hat{\pi}_k(x) is the posterior probability of component k given observation x:
 
 
 
