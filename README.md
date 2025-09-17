@@ -49,3 +49,23 @@ All the resullts are refering from uploaded $\textcolor{blue}{Results \space A-t
 ## 📝 **Details of Algorithm Pipeline for Power Estimation of VLSI Circuits**
 
 ![Workflow thinking process step by step](Power-Estimation-of-VLSI-circuits/PE.png)    
+
+🎯**Particular problems I am foucusing**
+
+With the advancements in $\textcolor{green}{VLSI \spcae technology}$, it is now possible to integrate millions of transistors into a single chip. However,increasing the count of transistors and operating frequencies leads to a significant rise in power consumption. This has emerged as a critical issue, especially in submicron technologies. Therefore, $\textcolor{yellow}{accurate \space power \space estimation \space during \space the \space early \space stages \space of \space VLSI \space circuit \space design \space is \space essential}$, as power consumption greatly affects the overall reliability and performance of the system and redesign time or power optimizing cost at RTL, Algorithmic or Architectural level.
+
+🚀 **Data set I work for**
+
+For power estimation I worked with my model on two dataset. The Simple one(first one) by visiting this [Link]() you can observe.
+- This dataset I taken form $\textcolor{red}{ISCAS'89}$ conference which contains of 20 different bench mark sequential circuits.
+- The every benchmark sequential logic is made with various logic gates as a load like NOR, NAND, NOT etc. So total 9 input features.
+- At end column its given the Mc(monte carlo) in mw simulted power. I have to estimate as close as possible.
+
+As this datset is Old and with small quantites data values there may be a industry limitation to judge this model perfomance. 
+- So next I found the another dataset form $\textcolor{red}{PATMOS'17}$ conference.
+- 
+
+
+
+
+
