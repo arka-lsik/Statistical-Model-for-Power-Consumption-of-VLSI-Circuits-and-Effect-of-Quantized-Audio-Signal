@@ -37,13 +37,13 @@ To know for $\textcolor{green}{mathemtical \space foundation \space of \space th
 
 *Results Discussion*
 All the resullts are refering from uploaded $\textcolor{blue}{Results \space A-to-D}$ section here [Link](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/tree/main/Results%20A-to-D)
-- This $\textcolor{red}{ two Picture}$ [Link1](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Synthetic%20Audio%20dataset/datasetpic1.png) & [Link2](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Synthetic%20Audio%20dataset/datasetpic2.png) represents the GMM signal as clustered form (top view) with thousand and ten thousand signal samples with the two different nature of dataset.
+- This $\textcolor{red}{two \space Picture}$ [Link1](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Synthetic%20Audio%20dataset/datasetpic1.png) & [Link2](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Synthetic%20Audio%20dataset/datasetpic2.png) represents the GMM signal as clustered form (top view) with thousand and ten thousand signal samples with the two different nature of dataset.
 -  the impact of quantization at different levels was analyzed, revealing changes in the data values.
   - The $\textcolor{red}{Pic-1}$ [Link](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Results%20A-to-D/Pic-1.png) Probability Distribution Function estimated after Uniform Quantization with Audio Dataset1. Results showed Level of Quantization(L) with Quantization Support(n).
   - The $\textcolor{red}{Pic-2}$ [Link](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Results%20A-to-D/Pic-2.png) Probability Distribution Function estimated after Uniform Quantization with Audio Dataset2. Results showed Level of Quantization(L) with Quantization Support(n).
   - The $\textcolor{red}{Pic-2}$ [Link](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Results%20A-to-D/Pic-3.png) Probability Distribution Function estimated after Entropy-Coded Quantization with Audio Dataset1. Results showed Level of Quantization(L) with Quantization Support(n).
   - The $\textcolor{red}{Pic-2}$ [Link](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Results%20A-to-D/Pic-4.png) Probability Distribution Function estimated after Entropy-Coded Quantization with Audio Dataset2. Results showed Level of Quantization(L) with Quantization Support(n).
-    - In the $\textcolor{red}{f2nd \space case}$ of optimal quantizer(ECQ - Vector Quantizer) I got the same data sample estimated with level of 8 of quantizer rather than 16 level. 
+    - In the $\textcolor{red}{2nd \space case}$ of optimal quantizer(ECQ - Vector Quantizer) I got the same data sample estimated with level of 8 of quantizer rather than 16 level. 
 - These $\textcolor{red}{four \space Pictures \space}$ [Link1](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Results%20A-to-D/Pic-5.png), [Link1](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Results%20A-to-D/Pic-6.png), [Link1](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Results%20A-to-D/Pic-7.png), [Link1](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Results%20A-to-D/Pic-7.png) are suggesting the *Mean Square Error* results after quantization of GMM modeled signal, compared with distorted signal with the original one. Here I used as previously said the *Expectation Maximization* algorithm for better clustering. So comparison showed that for bosth case of dataset and for both uniform and optimal quantizer, the EM applied estimation noise is effectively reduced in significatant numbers than without EM one.
 
 ## 📝 **Details of Algorithm Pipeline for Power Estimation of VLSI Circuits**
@@ -59,7 +59,7 @@ With the advancements in $\textcolor{green}{VLSI \space technology}$, it is now 
 For power estimation I worked with my model on two dataset. The Simple one(first one) by visiting this [Link](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Power-Estimation-of-VLSI-circuits/power%20consumption%20of%20ISCAS89%20benchmark%20circuits.csv) you can observe.
 - This dataset I taken form $\textcolor{red}{ISCAS'89}$ conference which contains of 20 different bench mark sequential circuits.
 - The every benchmark sequential logic is made with various logic gates as a load like NOR, NAND, NOT etc. So total 9 input features.
-- At end column its given the Mc(monte carlo) in mw simulted power. I have to estimate as close as possible.
+- At end column its given the Mc(Monte Carlo) in mw simulted power. I have to estimate as close as possible.
 
 As this datset [Link]() is Old and with small quantites data values there may be a industry limitation to judge this model perfomance. 
 - So next I found the another dataset form $\textcolor{red}{PATMOS'17}$ conference.
@@ -73,14 +73,14 @@ As this datset [Link]() is Old and with small quantites data values there may be
 The core idea is to model the joint distribution of input features $\textcolor{green}{(X)}$ and target variable $\textcolor{green}{(Y)}$ using a mixture of Gaussian distributions, and then use this joint model to predict $\textcolor{green}{Y \space given \space X}$. Let's break down the mathematics for 1st case of dataset- 
 
 *1. The Regression Problem Setup*
-- Features (X): These are input variables (e.g., GATE, AND, INV counts). X is an N×D matrix, where N is the number of data points and D=9 is the number of features.
-- Target (Y): This is the variable I want to predict (Power Consumption). Y is an N×1 vector.
-- Goal: To learn a function f(X)→Y such that for a new circuit with features x, we can predict its power consumption y.
+- $\textcolor{red}{Features (X):}$ These are input variables (e.g., GATE, AND, INV counts). X is an N×D matrix, where N is the number of data points and D=9 is the number of features.
+- $\textcolor{red}{Target (Y):}$ This is the variable I want to predict (Power Consumption). Y is an N×1 vector.
+- $\textcolor{red}{Goal:}$ To learn a function f(X)→Y such that for a new circuit with features x, we can predict its power consumption y.
 
 *2. Data Preprocessing: Normalization (Z-score Standardization)*
-- Purpose: Scale Invariance: Prevents features with larger numerical ranges from disproportionately influencing the model. If 'GATE' count ranges from 10 to 1000 and 'INV' count from 1 to 10, 'GATE' would dominate calculations without scaling.
-- Improved Convergence for EM: Many iterative optimization algorithms (like EM for GMMs) converge faster and more reliably when features are on a similar scale. So this a necessary steps.
-- For each feature (column) in X and for Y:
+- $\textcolor{red}{Purpose:}$ Scale Invariance: Prevents features with larger numerical ranges from disproportionately influencing the model. If 'GATE' count ranges from 10 to 1000 and 'INV' count from 1 to 10, 'GATE' would dominate calculations without scaling.
+- $\textcolor{red}{Improved \space Convergence \space for \space EM:}$ Many iterative optimization algorithms (like EM for GMMs) converge faster and more reliably when features are on a similar scale. So this a necessary steps.
+- $\textcolor{red}{For \space each \space feature \space (column) \space in \space X \space and \space for \space Y:}$
   The equations are:
 
 $$
@@ -97,9 +97,9 @@ Where:
 - $$\sigma_j$$ s the standard deviation of the j-th feature.
 - $$\mu_Y , \sigma_Y$$ are the mean and standard deviation of the target variable Y
 In code particularly if I say
-- [Xnorm, mu_X, sigma_X] = zscore(X); performs this for features.
-- Ynorm = (Y - mean(Y)) / std(Y); performs this for the target.
-- XYnorm = [Xnorm Ynorm]; combines them into a single matrix for GMM fitting. Each row now represents a D+1 dimensional data point $$z_n = [x_n, y_n]$$ in the normalized space.
+- [X_norm, \mu_X, \sigma_X] = zscore(X); performs this for features.
+- Y_norm = (Y - mean(Y)) / std(Y); performs this for the target.
+- XY_norm = [X_norm Y_norm]; combines them into a single matrix for GMM fitting. Each row now represents a D+1 dimensional data point $$z_n = [x_n, y_n]$$ in the normalized space.
 
 *3. Gaussian Mixture Model (GMM) -*
 - $\textcolor{red}{Concept:}$ A GMM assumes that your data points ($$z_n$$ which are $$[x_n, y_n]$$ in my case) are generated from a finite number of underlying Gaussian (Normal) distributions. These distributions are mixed together with certain probabilities.
@@ -112,8 +112,8 @@ $$
 
 where:
 - K: The number of Gaussian components (mixtures). This is the K you choose in your code.
-- $$\pi_k$$ The mixing coefficient (or prior probability) for the k-th component. It represents the probability that a randomly chosen data point belongs to the k-th component. $$\sum_{k=1}^{K} \pi_k = 1$$
-- $$\mathcal{N}(z \mid \mu_k, \Sigma_k)$$ The multivariate Gaussian distribution for the k-th component. $$\mu_k$$ The mean vector of the k-th Gaussian component. For your combined data z=[x,y], $$\mu_k$$ will have D+1 elements. $$\Sigma_k$$ The covariance matrix of the k-th Gaussian component. This symmetric matrix describes the spread and correlation of the variables within that component. Its size will be (D+1)×(D+1).
+- $$\pi_k$$ : The mixing coefficient (or prior probability) for the k-th component. It represents the probability that a randomly chosen data point belongs to the k-th component. $$\sum_{k=1}^{K} \pi_k = 1$$
+- $$\mathcal{N}(z \mid \mu_k, \Sigma_k)$$ : The multivariate Gaussian distribution for the k-th component. $$\mu_k$$ The mean vector of the k-th Gaussian component. For your combined data z=[x,y], $$\mu_k$$ will have D+1 elements. $$\Sigma_k$$ The covariance matrix of the k-th Gaussian component. This symmetric matrix describes the spread and correlation of the variables within that component. Its size will be (D+1)×(D+1).
 - θ: The complete set of all GMM parameters that need to be learned from the data: $$\pi_k$$, $$\mu_k$$, $$\Sigma_k$$ for k=1,…,K.
   
 
@@ -136,18 +136,18 @@ This step essentially quantifies "how much" each data point belongs to each clus
   - Update Mean Vectors: $$\mu_k^{\text{new}} = \frac{1}{N_k} \sum_{n=1}^{N} \gamma(z_n, k) \, z_n$$
   - Update Covariance Matrices: $$\Sigma_k^{\text{new}} = \frac{1}{N_k} \sum_{n=1}^{N} \gamma(z_n, k) \, (z_n - \mu_k^{\text{new}})(z_n - \mu_k^{\text{new}})^T$$
 
-- Convergence Check: Repeat E and M steps until the change in log-likelihood (or parameters) between iterations is smaller than a predefined tolerance or a maximum number of iterations (MaxIter) is reached.
-- RegularizationValue: This parameter adds a small positive constant to the diagonal of the covariance matrices during the M-step. Its purpose is to:
-  - Prevent Singularity: Covariance matrices can become singular (non-invertible) if a component has very few data points, or if data points within a component lie perfectly on a lower-dimensional subspace. Singular matrices cause mathematical errors.
-  - Improve Stability: It helps stabilize the EM algorithm, especially in early iterations or with problematic data.
+- $\textcolor{red}{Convergence \space Check:}$ Repeat E and M steps until the change in log-likelihood (or parameters) between iterations is smaller than a predefined tolerance or a maximum number of iterations (MaxIter) is reached.
+- $\textcolor{red}{RegularizationValue:}$ This parameter adds a small positive constant to the diagonal of the covariance matrices during the M-step. Its purpose is to:
+  - $\textcolor{green}{Prevent \space Singularity:}$ Covariance matrices can become singular (non-invertible) if a component has very few data points, or if data points within a component lie perfectly on a lower-dimensional subspace. Singular matrices cause mathematical errors.
+  - $\textcolor{green}{Improve \space Stability:}$ It helps stabilize the EM algorithm, especially in early iterations or with problematic data.
 
 
 *5. Conditional GMM for Prediction*
 Once the GMM parameters ($$\pi_k$$, $$\mu_k$$, $$\Sigma_k$$) are learned from the training data, we can use them to make predictions for new, unseen feature vectors X_new.
 
 The key here is using the properties of multivariate Gaussian distributions:
-- Partitioning the Mean and Covariance: Each component's mean \mu_k and covarience \Sigma_k are partitioned into parts corresponding to features (x) and the target (y).
-Let 
+- $\textcolor{red}{Partitioning \space the \space Mean \space and \space Covariance:}$ Each component's mean $$\mu_k$$ and covarience $$\Sigma_k$$ are partitioned into parts corresponding to features (x) and the target (y). Let
+
 $$
 z = \begin{bmatrix} x \\ y \end{bmatrix}
 $$
@@ -157,6 +157,7 @@ Then for each component \( k \):
 $$
 \mu_k = \begin{bmatrix} \mu_x^{(k)} \\ \mu_y^{(k)} \end{bmatrix}
 $$
+
 where
 - \( \mu_x^{(k)} \) is \( D \times 1 \)
 - \( \mu_y^{(k)} \) is \( 1 \times 1 \).
