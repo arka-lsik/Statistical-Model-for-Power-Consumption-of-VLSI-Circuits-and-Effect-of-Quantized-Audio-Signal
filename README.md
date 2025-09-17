@@ -48,4 +48,4 @@ All the resullts are refering from uploaded $\textcolor{blue}{Results \space A-t
 
 ## 📝 **Details of Algorithm Pipeline for Power Estimation of VLSI Circuits**
 
-![Workflow thinking process step by step](Results%20PE.png)    
+![Workflow thinking process step by step](Results%20Power-Estimation-of-VLSI-circuits/PE.png)    
