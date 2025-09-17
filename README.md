@@ -52,20 +52,44 @@ All the resullts are refering from uploaded $\textcolor{blue}{Results \space A-t
 
 🎯**Particular problems I am foucusing**
 
-With the advancements in $\textcolor{green}{VLSI \spcae technology}$, it is now possible to integrate millions of transistors into a single chip. However,increasing the count of transistors and operating frequencies leads to a significant rise in power consumption. This has emerged as a critical issue, especially in submicron technologies. Therefore, $\textcolor{yellow}{accurate \space power \space estimation \space during \space the \space early \space stages \space of \space VLSI \space circuit \space design \space is \space essential}$, as power consumption greatly affects the overall reliability and performance of the system and redesign time or power optimizing cost at RTL, Algorithmic or Architectural level.
+With the advancements in $\textcolor{green}{VLSI \space technology}$, it is now possible to integrate millions of transistors into a single chip. However,increasing the count of transistors and operating frequencies leads to a significant rise in power consumption. This has emerged as a critical issue, especially in submicron technologies. Therefore, $\textcolor{yellow}{accurate \space power \space estimation \space during \space the \space early \space stages \space of \space VLSI \space circuit \space design \space is \space essential}$, as power consumption greatly affects the overall reliability and performance of the system and redesign time or power optimizing cost at RTL, Algorithmic or Architectural level.
 
 🚀 **Data set I work for**
 
-For power estimation I worked with my model on two dataset. The Simple one(first one) by visiting this [Link]() you can observe.
+For power estimation I worked with my model on two dataset. The Simple one(first one) by visiting this [Link](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Power-Estimation-of-VLSI-circuits/power%20consumption%20of%20ISCAS89%20benchmark%20circuits.csv) you can observe.
 - This dataset I taken form $\textcolor{red}{ISCAS'89}$ conference which contains of 20 different bench mark sequential circuits.
 - The every benchmark sequential logic is made with various logic gates as a load like NOR, NAND, NOT etc. So total 9 input features.
 - At end column its given the Mc(monte carlo) in mw simulted power. I have to estimate as close as possible.
 
-As this datset is Old and with small quantites data values there may be a industry limitation to judge this model perfomance. 
+As this datset [Link]() is Old and with small quantites data values there may be a industry limitation to judge this model perfomance. 
 - So next I found the another dataset form $\textcolor{red}{PATMOS'17}$ conference.
-- 
+- Consider Odorid-XU3 for this work, which contains an Exynos-5422 SoC with a quad-core ARM Cortex-A7 CPU cluster and a quad-core ARM Cortex-A15 CPU cluster.
+- Both types of CPU share the same instruction-set architecture (ISA) but are optimised for different energy/performance design.
+- The power measurements data (in the sheet represented) were collected from power sensors built into the ODROID-XU3 platform.
+- This work data considers only the higher performance Cortex-A15 cluster.
 
+🎯 **Model Mathematical Descriptions**
 
+The core idea is to model the joint distribution of input features $\textcolor{green}{(X)}$ and target variable $\textcolor{green}{(Y)}$ using a mixture of Gaussian distributions, and then use this joint model to predict $\textcolor{green}{Y \space given \space X}$. Let's break down the mathematics for 1st case of dataset- 
+
+*1. The Regression Problem Setup*
+- Features (X): These are input variables (e.g., GATE, AND, INV counts). X is an N×D matrix, where N is the number of data points and D=9 is the number of features.
+- Target (Y): This is the variable I want to predict (Power Consumption). Y is an N×1 vector.
+- Goal: To learn a function f(X)→Y such that for a new circuit with features x, we can predict its power consumption y.
+
+*2. Data Preprocessing: Normalization (Z-score Standardization)*
+- Purpose:
+- -Scale Invariance: Prevents features with larger numerical ranges from disproportionately influencing the model. If 'GATE' count ranges from 10 to 1000 and 'INV' count from 1 to 10, 'GATE' would dominate calculations without scaling.
+- -Improved Convergence for EM: Many iterative optimization algorithms (like EM for GMMs) converge faster and more reliably when features are on a similar scale. So this a necessary steps.
+- For each feature (column) in X and for Y:
+  The equations are:
+$$
+x'_{ij} = \frac{x_{ij} - \mu_j}{\sigma_j}
+$$
+
+$$
+y'_i = \frac{y_i - \mu_Y}{\sigma_Y}
+$$
 
 
 
