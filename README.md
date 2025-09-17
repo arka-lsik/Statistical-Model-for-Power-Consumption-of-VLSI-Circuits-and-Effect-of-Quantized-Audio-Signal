@@ -95,5 +95,9 @@ Where:
 - $$x'_{ij}$$ is the normalized value of the i-th data point for the j-th feature.
 - $$\mu_j$$ is the mean of the j-th feature.
 - $$\sigma_j$$ s the standard deviation of the j-th feature.
-- $$\mu_Y and \sigma_Y$$ are the mean and standard deviation of the target variable Y
+- $$\mu_Y , \sigma_Y$$ are the mean and standard deviation of the target variable Y
+In code particularly if I say
+- [Xnorm, mu_X, sigma_X] = zscore(X); performs this for features.
+- Ynorm = (Y - mean(Y)) / std(Y); performs this for the target.
+- XYnorm = [Xnorm Ynorm]; combines them into a single matrix for GMM fitting. Each row now represents a D+1 dimensional data point $$z_n = [x_n, y_n]$$
 
