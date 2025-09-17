@@ -160,8 +160,7 @@ $$
 
 where
 
-- $$\( \mu_x^{(k)} \) is \( D \times 1 \)
-- $$\( \mu_y^{(k)} \) is \( 1 \times 1 \).
+- $$\( \mu_x^{(k)} \) is \( D \times 1 \), \( \mu_y^{(k)} \) is \( 1 \times 1 \) $$
 
 And the $\textcolor{red}{covariance \space matrix:}$
 
