@@ -83,6 +83,7 @@ The core idea is to model the joint distribution of input features $\textcolor{g
 - -Improved Convergence for EM: Many iterative optimization algorithms (like EM for GMMs) converge faster and more reliably when features are on a similar scale. So this a necessary steps.
 - For each feature (column) in X and for Y:
   The equations are:
+
 $$
 x'_{ij} = \frac{x_{ij} - \mu_j}{\sigma_j}
 $$
