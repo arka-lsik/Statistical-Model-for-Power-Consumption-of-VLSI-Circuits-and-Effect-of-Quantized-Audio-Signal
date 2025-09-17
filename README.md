@@ -99,5 +99,46 @@ Where:
 In code particularly if I say
 - [Xnorm, mu_X, sigma_X] = zscore(X); performs this for features.
 - Ynorm = (Y - mean(Y)) / std(Y); performs this for the target.
-- XYnorm = [Xnorm Ynorm]; combines them into a single matrix for GMM fitting. Each row now represents a D+1 dimensional data point $$z_n = [x_n, y_n]$$
+- XYnorm = [Xnorm Ynorm]; combines them into a single matrix for GMM fitting. Each row now represents a D+1 dimensional data point $$z_n = [x_n, y_n]$$ in the normalized space.
+
+*3. Gaussian Mixture Model (GMM) - The Core Idea*
+- Concept: A GMM assumes that your data points ($$z_n$$ which are $$[x_n, y_n]$$ in my case) are generated from a finite number of underlying Gaussian (Normal) distributions. These distributions are mixed together with certain probabilities.
+- Why for Regression? Instead of directly trying to model the relationship Y=f(X), GMMs allow to model the joint probability distribution p(X,Y). Once we have p(X,Y), we can derive the conditional probability distribution p(Y∣X) to make predictions.
+- Mathematical Representation: The probability density function (PDF) of a GMM for a data point z is given by:
+$$
+p(z \mid \theta) = \sum_{k=1}^{K} \pi_k \, \mathcal{N}(z \mid \mu_k, \Sigma_k)
+$$
+where:
+- K: The number of Gaussian components (mixtures). This is the K you choose in your code.
+- $$\pi_k$$ The mixing coefficient (or prior probability) for the k-th component. It represents the probability that a randomly chosen data point belongs to the k-th component. $$\sum_{k=1}^{K} \pi_k = 1$$
+- $$\mathcal{N}(z \mid \mu_k, \Sigma_k)$$ The multivariate Gaussian distribution for the k-th component. $$\mu_k$$ The mean vector of the k-th Gaussian component. For your combined data z=[x,y], $$\mu_k$$ will have D+1 elements. $$\Sigma_k$$ The covariance matrix of the k-th Gaussian component. This symmetric matrix describes the spread and correlation of the variables within that component. Its size will be (D+1)×(D+1). θ: The complete set of all GMM parameters that need to be learned from the data: {$$\pi_k$$
+, $$\mu_k$$, $$\Sigma_k$$ for k=1,…,K}.
+  
+
+*4. Expectation-Maximization (EM) Algorithm - Learning the GMM Parameters*
+- Purpose: Given the observed data points (XYnorm), the EM algorithm is used to estimate the unknown GMM parameters (θ) when we don't know which data point belongs to which Gaussian component. It's an iterative approach.
+- The "Hidden" Variable: The "hidden" information is the component assignment for each data point. We don't directly observe this.
+- $\textcolor{red}{}$Initialization:$ Iterative Steps: Start with some initial guesses for {$$\pi_k$$, $$\mu_k$$, $$\Sigma_k$$ (e.g., random, or using k-means clustering to find initial centroids).
+- $\textcolor{red}{}$E-step \space (Expectation \space Step):$ ssuming the current parameters are correct, calculate the "responsibility" (or posterior probability) that each component k has for generating each data point $$z_n$$ -
+
+$$
+\gamma(z_n, k) = p(k \mid z_n, \theta^{\text{old}}) = \frac{\pi_k^{\text{old}} \, \mathcal{N}(z_n \mid \mu_k^{\text{old}}, \Sigma_k^{\text{old}})}{\sum_{j=1}^{K} \pi_j^{\text{old}} \, \mathcal{N}(z_n \mid \mu_j^{\text{old}}, \Sigma_j^{\text{old}})}
+$$
+
+This step essentially quantifies "how much" each data point belongs to each cluster. 
+
+- $$\textcolor{red}{}$M-step \space \space (Expectation \space Step)$$
+  - Using the responsibilities calculated in the E-step, update the GMM parameters($$\pi_k$$, $$\mu_k$$, $$\Sigma_k$$) to maximize the likelihood of the data.
+  - Effective Number of Points for Component k: $$N_k = \sum_{n=1}^{N} \gamma(z_n, k)$$
+  - Update Mixing Coefficients: $$\pi_k^{\text{new}} = \frac{N_k}{N}$$
+  - Update Mean Vectors: $$\mu_k^{\text{new}} = \frac{1}{N_k} \sum_{n=1}^{N} \gamma(z_n, k) \, z_n$$
+  - Update Covariance Matrices: $$\Sigma_k^{\text{new}} = \frac{1}{N_k} \sum_{n=1}^{N} \gamma(z_n, k) \, (z_n - \mu_k^{\text{new}})(z_n - \mu_k^{\text{new}})^T$$
+
+- Convergence Check: Repeat E and M steps until the change in log-likelihood (or parameters) between iterations is smaller than a predefined tolerance or a maximum number of iterations (MaxIter) is reached.
+- RegularizationValue: This parameter adds a small positive constant to the diagonal of the covariance matrices during the M-step. Its purpose is to:
+  -Prevent Singularity: Covariance matrices can become singular (non-invertible) if a component has very few data points, or if data points within a component lie perfectly on a lower-dimensional subspace. Singular matrices cause mathematical errors.
+  -Improve Stability: It helps stabilize the EM algorithm, especially in early iterations or with problematic data.
+
+
+
 
