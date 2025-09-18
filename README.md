@@ -178,7 +178,12 @@ $$\( \mu_x^{(k)} \) is \( D \times 1 \), \space \( \mu_y^{(k)} \) is \( 1 \times
 
    - $\textcolor{red}{Conditional \space Variance}$: $$\Sigma_{yy \mid x}^{(k)} = \Sigma_{yy}^{(k)} - \Sigma_{yx}^{(k)} \left( \Sigma_{xx}^{(k)} \right)^{-1} \Sigma_{xy}^{(k)}$$
 
-   - $\textcolor{red}{Prediction \space for \space the \space GMM}$: 
+   - $\textcolor{red}{Prediction \space for \space the \space GMM}$: Since the overall GMM is a mixture of Gaussians, the conditional distribution p(Y∣x) is also a mixture of Gaussians, $$p(Y \mid x) = \sum_{k=1}^{K} \hat{\pi}_k(x) \, \mathcal{N}\left(Y \mid \mu_{y \mid x}^{(k)}, \Sigma_{yy \mid x}^{(k)}\right)$$.
+     Where $$\hat{\pi}_k(x)$$ is the posterior probability of component k given observation x:
+
+
+
+
  
 
 
