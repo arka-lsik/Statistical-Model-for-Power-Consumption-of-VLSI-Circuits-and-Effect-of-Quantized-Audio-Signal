@@ -199,6 +199,15 @@ $$\( \mu_x^{(k)} \) is \( D \times 1 \), \space \( \mu_y^{(k)} \) is \( 1 \times
 This allows me to estimate not just the predicted power but also its associated uncertainty.
 
 
+*6. Model Selection: AIC and BIC* -
+- $\textcolor{red}{Purpose}$: To select the optimal number of components (K) for the GMM. A larger K allows for more complex models that might fit the training data better, but risk overfitting. AIC and BIC balance fit with complexity.
+- $\textcolor{red}{Log-Likelihood}$: $$\ln(\hat{L})$$ Both criteria depend on the maximum value of the log-likelihood function for the fitted GMM. The log-likelihood measures how well the model explains the observed data. A higher log-likelihood means a better fit.
+- $\textcolor{red}{Number \space of \space Parameters}$: For a GMM with K components in a D+1 dimensional space.
+- $\textcolor{red}{Formulas}$:
+  - AIC (Akaike Information Criterion): $$2k - 2\ln(\hat{L})$$
+  - BIC (Bayesian Information Criterion): $$k\ln(N) - 2\ln(\hat{L})$$
+  - Interpretation: For both, lower values are better. They quantify the trade-off between model fit and complexity. BIC generally penalizes complexity more strongly, especially for larger datasets (N), leading to simpler models.
+
     
 
 
