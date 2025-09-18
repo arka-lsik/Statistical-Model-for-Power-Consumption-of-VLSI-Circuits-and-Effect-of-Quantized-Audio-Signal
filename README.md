@@ -153,8 +153,23 @@ $$
 Then for each component \( k \):
 
 $$
-\mu_k = \begin{bmatrix} \mu_x^{(k)} \\ \mu_y^{(k)} \end{bmatrix}
+\mu_k = \begin{bmatrix} \mu_x^{(k)} \\ \mu_y^{(k)} \end{bmatrix}^{T}
 $$
+
+where
+
+$$
+\( \mu_x^{(k)} \) is \( D \times 1 \), \space \( \mu_y^{(k)} \) is \( 1 \times 1 \)
+$$.
+
+- $\textcolor{red}{The \space covariance \space matrix}$:
+
+ $$
+    \Sigma_k = \begin{bmatrix}
+    \Sigma_{xx}^{(k)} & \Sigma_{xy}^{(k)} \\
+    \Sigma_{yx}^{(k)} & \Sigma_{yy}^{(k)}
+    \end{bmatrix}
+    $$
 
 
 
