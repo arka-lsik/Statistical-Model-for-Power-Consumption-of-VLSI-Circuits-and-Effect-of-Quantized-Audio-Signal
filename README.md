@@ -246,8 +246,9 @@ K=5, indicating it favors a slightly more complex model. Overall, BIC prefers th
 ![Fig4](Power-Estimation-of-VLSI-circuits/Fig5.png)
 ![Fig5](Power-Estimation-of-VLSI-circuits/Fig6.png)
 ![Fig6](Power-Estimation-of-VLSI-circuits/Fig7.png)
-- $\textcolor{red}{Fig7}$ lastly shown in the fromat of clusterd way estimation of power samples from 20 sequenctial benchmark circits.
+- $\textcolor{red}{Fig7}$ lastly shown in the fromat of clusterd way estimation of power samples from 20 sequenctial benchmark circits. earlier AIC/BIC plot suggested K=2 is the optimal choice (because BIC penalizes complexity more strongly), here the model has been fitted with K=3. That’s why the scatter plot is labeled with three distinct clusters.
 ![Fig7](Power-Estimation-of-VLSI-circuits/Fig8.png)
+
 
 
 
