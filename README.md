@@ -181,14 +181,16 @@ $$\( \mu_x^{(k)} \) is \( D \times 1 \), \space \( \mu_y^{(k)} \) is \( 1 \times
    - $\textcolor{red}{Prediction \space for \space the \space GMM}$: Since the overall GMM is a mixture of Gaussians, the conditional distribution p(Y∣x) is also a mixture of Gaussians:
 
      $$
-     p(Y \mid x) = \sum_{k=1}^{K} \hat{\pi}_k(x) \, \mathcal{N}\left(Y \mid \mu_{y \mid x}^{(k)}, \Sigma_{yy \mid x}^{(k)}\right)
-     $$
+p(Y \mid x) = \sum_{k=1}^{K} \hat{\pi}_k(x)\,\mathcal{N}\!\left(Y \mid \mu_{y \mid x}^{(k)}, \Sigma_{yy \mid x}^{(k)}\right)
+$$
+
      
      Where $$\hat{\pi}_k(x)$$ is the posterior probability of component k given observation x:
      
-     $$
-     \hat{\pi}_k(x) = p(k \mid x) = \frac{\pi_k \, \mathcal{N}\!\left(x \mid \mu_x^{(k)}, \Sigma_{xx}^{(k)}\right)} {\sum_{j=1}^{K} \pi_j \, \mathcal{N}\!\left(x \mid \mu_x^{(j)}, \Sigma_{xx}^{(j)}\right)}
-     $$
+    $$
+\hat{\pi}_k(x) = p(k \mid x) = \frac{\pi_k \, \mathcal{N}\!\left(x \mid \mu_x^{(k)}, \Sigma_{xx}^{(k)}\right)} {\sum_{j=1}^{K} \pi_j \, \mathcal{N}\!\left(x \mid \mu_x^{(j)}, \Sigma_{xx}^{(j)}\right)}
+$$
+
  
      calculating these posterior probabilities $$\hat{\pi}_k(x)$$,
   - $\textcolor{red}{My \space prediction:}$ $$(Y_pred)$$ To get a single point prediction for Y given x, calculates the expected value of Y given x, which is the weighted        average of the conditional means from each component $$\mathbb{E}[Y \mid x] = \sum_{k=1}^{K} \hat{\pi}_k(x) \, \mu_{y \mid x}^{(k)}$$
