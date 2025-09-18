@@ -253,8 +253,19 @@ K=5, indicating it favors a slightly more complex model. Overall, BIC prefers th
 
 
 
+## 🔍 **Links to be visited for more details**
+ ## 🌟 **Acknowledgments**
+ - This work began about 1.2 years ago with a very simple idea inspired by Information Theory.
+ - My curiosity and enthusiasm for the VLSI design process encouraged me to explore this direction further.
+ - Initially, I was engaged in signal processing research, specifically focusing on audio compression.
+ - Over time, I became familiar with machine learning algorithms, approaching them as mathematical tools to address broader challenges rather than problem-specific methods.
+ - After overcoming the initial hurdles, I realized the beauty and potential of my earlier work, which opened doors for deeper research.
+ - This naturally led me to focus on power estimation in the early stages of design, an idea inspired not only by my own algorithmic thinking but also by concepts from a Low Power Design Techniques course.
+ - I am deeply grateful to Prof. Ritwik Kumar Layek, who consistently encouraged me to think beyond conventional approaches and explore unconventional areas of research.
+ - I also thank the Department of Electronics and Electrical Communication Engineering, IIT Kharagpur, and my generous friends who supported me through discussions in the lab, classroom, and even during tea breaks at the canteen.
+ - Finally, I feel fortunate that this journey has helped me grow intellectually and progress toward more complex and meaningful thinking.
 
- 
+## ⭐ **If you find this project helpful, feel free to star the repo and share your feedback!** ⭐
 
 
 
