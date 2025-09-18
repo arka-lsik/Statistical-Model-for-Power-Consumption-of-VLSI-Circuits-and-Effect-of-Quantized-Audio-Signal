@@ -177,8 +177,17 @@ $$\( \mu_x^{(k)} \) is \( D \times 1 \), \space \( \mu_y^{(k)} \) is \( 1 \times
   - $\textcolor{red}{Conditional \space Mean}$:
 
     $$
-     \mu_{y \mid x}^{(k)} = \mu_y^{(k)} + \Sigma_{yx}^{(k)} \left( \Sigma_{xx}^{(k)} \right)^{-1} (x - \mu_x^{(k)})
+    \mu_{y \mid x}^{(k)} = \mu_y^{(k)} + \Sigma_{yx}^{(k)} \left( \Sigma_{xx}^{(k)} \right)^{-1} (x - \mu_x^{(k)})
+    $$
+
+   - $\textcolor{red}{Conditional \space Variance}$:
+
      $$
+     \Sigma_{yy \mid x}^{(k)} = \Sigma_{yy}^{(k)} - \Sigma_{yx}^{(k)} \left( \Sigma_{xx}^{(k)} \right)^{-1} \Sigma_{xy}^{(k)}
+     $$
+
+   - $\textcolor{red}{Prediction \space for \space the \space GMM}$: 
+ 
 
 
 
