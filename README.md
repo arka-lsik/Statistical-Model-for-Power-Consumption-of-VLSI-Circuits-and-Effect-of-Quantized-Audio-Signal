@@ -8,13 +8,13 @@ This study explores how the noise came and average distortion is generate at det
 
 🎯 **Problem Statement**
 
-● *$\textcolor{red}{Data \space Compression \space and \space Quantization \space in \space Bandwidth-Limited \space Channels$*:
+● *$\textcolor{red}{Data \space Compression \space and \space Quantization \space in \space Bandwidth-Limited \space Channels}$*:
 - When transmitting random source samples (e.g., Gaussian or mixture of Gaussians) over BW-limited channels, effective data compression is crucial to reduce transmission cost.
 - Quantization is a necessary step in compression, but it inherently introduces information loss, reducing the accuracy of the original data representation.
 - This becomes critical when quantized data is further used for downstream tasks such as clustering, where the distortion can significantly affect the final results.
 - The Expectation-Maximization (EM) algorithm has been found to help mitigate the negative effects of quantization in clustering tasks, improving the robustness of data representation.
 
-● *$\textcolor{red}{Research \space Shift \space Towards \space VLSI \space Circuit \space Analysis \space for \space Power-Aware \space Design*:
+● *$\textcolor{red}{Research \space Shift \space Towards \space VLSI \space Circuit \space Analysis \space for \space Power-Aware \space Design}$*:
 - Initial focus was on Audio signal processing and quantization impact reduction through clustering-based pipelines.
 - Current research direction shifted toward a more impactful area: Circuit Analysis in VLSI Design flow.
 - The main goal is to estimate and model pre-microarchitectural data to support power-aware design.
