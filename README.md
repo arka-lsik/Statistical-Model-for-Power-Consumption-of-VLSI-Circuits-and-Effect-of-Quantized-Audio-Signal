@@ -158,9 +158,7 @@ $$
 
 where
 
-$$
-\( \mu_x^{(k)} \) is \( D \times 1 \), \space \( \mu_y^{(k)} \) is \( 1 \times 1 \)
-$$.
+$$\( \mu_x^{(k)} \) is \( D \times 1 \), \space \( \mu_y^{(k)} \) is \( 1 \times 1 \)$$
 
 - $\textcolor{red}{The \space covariance \space matrix}$:
 
@@ -169,7 +167,13 @@ $$.
     \Sigma_{xx}^{(k)} & \Sigma_{xy}^{(k)} \\
     \Sigma_{yx}^{(k)} & \Sigma_{yy}^{(k)}
     \end{bmatrix}
-    $$
+    $$ 
+    
+ where,
+ 
+ $$\Sigma_{xx}^{(k)} is \(D \times D\), \space \Sigma_{xy}^{(k)} is \(D \times 1\), \space \Sigma_{yx}^{(k)} is \(1 \times D\), \space \Sigma_{yy}^{(k)} is \(1 \times 1\)$$ 
+
+    
 
 
 
