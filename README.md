@@ -185,11 +185,14 @@ $$
 \hat{\pi}_k(x) = p(k \mid x) = \frac{\pi_k \, \mathcal{N}\!\left(x \mid \mu_x^{(k)}, \Sigma_{xx}^{(k)}\right)} {\sum_{j=1}^{K} \pi_j \, \mathcal{N}\!\left(x \mid \mu_x^{(j)}, \Sigma_{xx}^{(j)}\right)}
 $$
 
-  - $\textcolor{red}{prediction:}$ $$(Y_{pred})$$ To get a single point prediction for Y given x, calculates the expected value of Y given x, which is the weighted average of the conditional means from each component
+  - $\textcolor{red}{prediction:}$ $Y_{pred}$  
 
-    $$
+To get a single point prediction for $Y$ given $x$, calculate the expected value of $Y$ given $x$, which is the weighted average of the conditional means from each component:
+
+$$
 \mathbb{E}[Y \mid x] = \sum_{k=1}^{K} \hat{\pi}_k(x) \, \mu_{y \mid x}^{(k)}
 $$
+
 
     
   - $\textcolor{red}{Uncertainty:}$ There attempts to calculate the variance of the prediction. For a GMM, the total conditional variance Var[Y∣x] is not simply the weighted      average of $$\Sigma_{yy \mid x}^{(k)}$$, It needs to account for both the variance within each component's conditional distribution and the variance between the             conditional means of the different components. The correct formula for the variance of a mixture is
