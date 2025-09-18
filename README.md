@@ -216,6 +216,21 @@ This allows estimating not just the predicted power but also its associated unce
   - BIC (Bayesian Information Criterion): $$k\ln(N) - 2\ln(\hat{L})$$
   - Interpretation: For both, lower values are better. They quantify the trade-off between model fit and complexity. BIC generally penalizes complexity more strongly, especially for larger datasets (N), leading to simpler models.
 
+*7. Evaluation Metrics*  
+These metrics quantify how well your model's predictions $Y_{pred-test}$ match the actual $Y_{test}$ values on the unseen test data.
+- $\textcolor{red}{MAE \space (Mean \space Absolute \space error)}$: Average absolute difference between predicted and actual values. Easy to understand, robust to outliers. Units are the same as your target (mW): $\text{MAE} = \frac{1}{N_{\text{test}}} \sum_{i=1}^{N_{\text{test}}} \left| Y_{\text{test},i} - Y_{\text{pred},i} \right|$
+
+- $\textcolor{red}{RMSE \space (Root \space Mean \Square \space Error)}$: Average magnitude of the errors. Penalizes larger errors more heavily due to the squaring term. Units are also mW : $\text{RMSE} = \sqrt{\frac{1}{N_{\text{test}}} \sum_{i=1}^{N_{\text{test}}} \left( Y_{\text{test},i} - Y_{\text{pred},i} \right)^2}$
+
+- $\textcolor{red}{R-Squared \space (R^2 \space or \space Coefficient \space of \space Determination)}$:
+
+  $$
+R^2 = 1 - \frac{\sum_{i=1}^{N_{\text{test}}} \big( Y_{\text{test},i} - \bar{Y}_{\text{test}} \big)^2}{\sum_{i=1}^{N_{\text{test}}} \big( Y_{\text{test},i} - Y_{\text{pred},i} \big)^2}
+$$
+
+  - R^2 = 1: Perfect fit.
+  - R^2 = 0: The model explains no variability (predictions are no better than simply predicting the mean of Y).
+  - R^2 < 0: The model is worse than simply predicting the mean.
     
 
 
