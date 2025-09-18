@@ -147,7 +147,13 @@ Once the GMM parameters ($$\pi_k$$, $$\mu_k$$, $$\Sigma_k$$) are learned from th
 - $\textcolor{red}{Partitioning \space the \space Mean \space and \space Covariance}$: Each component's mean $$\mu_k$$ and covarience $$\Sigma_k$$ are partitioned into parts corresponding to features (x) and the target (y). Let,
 
 $$
-z = \begin{bmatrix} x \\ y \end{bmatrix}
+z = \begin{bmatrix} x \\ y \end{bmatrix}^{T}
+$$
+
+Then for each component \( k \):
+
+$$
+\mu_k = \begin{bmatrix} \mu_x^{(k)} \\ \mu_y^{(k)} \end{bmatrix}
 $$
 
 
