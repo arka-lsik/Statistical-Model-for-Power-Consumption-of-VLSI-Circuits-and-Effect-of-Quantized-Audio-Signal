@@ -142,9 +142,13 @@ This step essentially quantifies "how much" each data point belongs to each clus
   - $\textcolor{green}{Improve \space Stability:}$ It helps stabilize the EM algorithm, especially in early iterations or with problematic data.
 
 
-*5. Conditional GMM for Prediction* -
+*5. Conditional GMM for Prediction* -  
 Once the GMM parameters ($$\pi_k$$, $$\mu_k$$, $$\Sigma_k$$) are learned from the training data, we can use them to make predictions for new, unseen feature vectors $$X_{new}$$. The key here is using the properties of multivariate Gaussian distributions
-- $\textcolor{red}{Partitioning \space the \space Mean \space and \space Covariance}$: Each component's mean $$\mu_k$$ and covarience $$\Sigma_k$$ are partitioned into parts corresponding to features (x) and the target (y). Let, $$z = \begin{bmatrix} x \\ y \end{bmatrix}$$ 
+- $\textcolor{red}{Partitioning \space the \space Mean \space and \space Covariance}$: Each component's mean $$\mu_k$$ and covarience $$\Sigma_k$$ are partitioned into parts corresponding to features (x) and the target (y). Let,
+
+  \[
+  z = \begin{bmatrix} x \\ y \end{bmatrix}
+  /]
 
 
 
