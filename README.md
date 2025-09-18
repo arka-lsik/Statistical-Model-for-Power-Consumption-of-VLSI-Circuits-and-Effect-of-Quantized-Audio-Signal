@@ -195,14 +195,16 @@ $$
 
 
     
-  - $\textcolor{red}{Uncertainty:}$ There attempts to calculate the variance of the prediction. For a GMM, the total conditional variance Var[Y∣x] is not simply the weighted      average of $$\Sigma_{yy \mid x}^{(k)}$$, It needs to account for both the variance within each component's conditional distribution and the variance between the             conditional means of the different components. The correct formula for the variance of a mixture is
+  - $\textcolor{red}{Uncertainty:}$  
 
-    $$
-\mathrm{Var}[Y \mid x] = \sum_{k=1}^{K} \hat{\pi}_k(x) \left( \Sigma_{yy \mid x}^{(k)} + \big( \mu_{y \mid x}^{(k)} - \mathbb{E}[Y \mid x] \big)^2 \right)
+These are attempts to calculate the variance of the prediction. For a GMM, the total conditional variance $\mathrm{Var}[Y \mid x]$ is not simply the weighted average of $\Sigma_{yy \mid x}^{(k)}$. It needs to account for both the variance within each component's conditional distribution and the variance between the conditional means of the different components. The correct formula for the variance of a mixture is:
+
+$$
+\mathrm{Var}[Y \mid x] = \sum_{k=1}^{K} \hat{\pi}_k(x) \Big( \Sigma_{yy \mid x}^{(k)} + (\mu_{y \mid x}^{(k)} - \mathbb{E}[Y \mid x])^2 \Big)
 $$
 
+This allows estimating not just the predicted power but also its associated uncertainty.
 
-    This allows me to estimate not just the predicted power but also its associated uncertainty.
 
 
 *6. Model Selection: AIC and BIC* -
