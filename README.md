@@ -236,9 +236,18 @@ $$
 🖼️ **Results and Discusiions**
 Lets conclude with the results part discussion brifely. The discusiion of this below figures are coming out on the experiment of 1st data set.
 - The $\textcolor{red}{Fig1}$ orange line represents the linear power trend derived from the Monte Carlo–simulated power data (in mW). The blue markers indicate the estimated power data samples.
-![Fig1](Power-Estimation-of-VLSI-circuits/Fig1.png) 
-    
-
+![Fig1](Power-Estimation-of-VLSI-circuits/Fig1.png)
+- $\textcolor{red}{Fig2}$ The histogram of prediction errors shows how frequently different error values occur when comparing the predicted power to the actual power. The errors range from about –0.02 mW to +0.06 mW, where negative values indicate overestimation and positive values indicate underestimation. Most of the errors are concentrated close to zero, particularly between 0 and 0.02 mW, which suggests that the model is generally accurate. A smaller number of samples fall into the negative error range (around –0.02 mW), while a few extend into larger positive errors (0.05–0.06 mW). This pattern indicates that the model has a slight bias toward underestimating the true power, though the overall spread of errors is small, demonstrating consistent performance. Overall, the distribution confirms that the model makes reliable predictions with only minor deviations around the true values.
+  ![Fig2](Power-Estimation-of-VLSI-circuits/Fig2.png)
+- $\textcolor{red}{Fig3}$ The plot compares AIC and BIC scores for different model sizes K, where lower values indicate a better balance between accuracy and complexity. Both criteria drop sharply at K=2, showing that a two-component model is a clear improvement over a single one. BIC reaches its lowest point at K=2, suggesting it as the optimal choice, while AIC continues to decrease slightly for K=4 and 
+K=5, indicating it favors a slightly more complex model. Overall, BIC prefers the simpler two-component model, while AIC allows for a bit more complexity. SO right thinking of choice will se when we clusterd results Later.
+![Fig3](Power-Estimation-of-VLSI-circuits/Fig3.png)
+- $\textcolor{red}{Fig4 \space Fig5 \space Fig6\}$ showed the exact estimation accuracy in terms of *Evaluation Matrix* called *MAE(Mean Absolute Error*, *RMSE(Root Mean Square Error* and *R-Squared model fit* in histogram format and also presented the campariablity betwwen different models (eg. LR, RF, NN etc. ) for understanding.
+![Fig4](Power-Estimation-of-VLSI-circuits/Fig5.png)
+![Fig5](Power-Estimation-of-VLSI-circuits/Fig6.png)
+![Fig6](Power-Estimation-of-VLSI-circuits/Fig7.png)
+- $\textcolor{red}{Fig7}$ lastly shown in the fromat of clusterd way estimation of power samples from 20 sequenctial benchmark circits.
+![Fig7](Power-Estimation-of-VLSI-circuits/Fig8.png)
 
 
 
