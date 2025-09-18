@@ -234,7 +234,9 @@ $$
 
 
 🖼️ **Results and Discusiions**
-
+Lets conclude with the results part discussion brifely. The discusiion of this below figures are coming out on the experiment of 1st data set.
+- The $\textcolor{red}{Fig1}$ orange line represents the linear power trend derived from the Monte Carlo–simulated power data (in mW). The blue markers indicate the estimated power data samples.
+![Fig1](Power-Estimation-of-VLSI-circuits/Fig1.png) 
     
 
 
