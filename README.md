@@ -222,7 +222,11 @@ These metrics quantify how well your model's predictions $Y_{pred-test}$ match t
 
 - $\textcolor{red}{RMSE \space (Root \space Mean \Square \space Error)}$: Average magnitude of the errors. Penalizes larger errors more heavily due to the squaring term. Units are also mW : $\text{RMSE} = \sqrt{\frac{1}{N_{\text{test}}} \sum_{i=1}^{N_{\text{test}}} \left( Y_{\text{test},i} - Y_{\text{pred},i} \right)^2}$
 
-- $\textcolor{red}{R\text{-}Squared\ (R^2\ \text{or Coefficient of Determination})}$ The formula is: $R^2 = 1 - \frac{\sum_{i=1}^{N_{\text{test}}} \big( Y_{\text{test},i} - \bar{Y}_{\text{test}} \big)^2}{\sum_{i=1}^{N_{\text{test}}} \big( Y_{\text{test},i} - Y_{\text{pred},i} \big)^2}$
+- $\textcolor{red}{R\text{-}Squared\ (R^2\ \text{or Coefficient of Determination})}$:
+  
+  $$
+  R^2 = 1 - \frac{\sum_{i=1}^{N_{\text{test}}} \big( Y_{\text{test},i} - \bar{Y}_{\text{test}} \big)^2}{\sum_{i=1}^{N_{\text{test}}} \big( Y_{\text{test},i} - Y_{\text{pred},i} \big)^2}
+  $$
 
   Where:
   - $R^2 = 1$: Perfect fit.
