@@ -119,7 +119,7 @@ where:
 
 *4. Expectation-Maximization (EM) Algorithm - Learning the GMM Parameters*
 - $\textcolor{red}{Purpose:}$ Given the observed data points (XYnorm), the EM algorithm is used to estimate the unknown GMM parameters (θ) when we don't know which data point belongs to which Gaussian component. It's an iterative approach.
-- $\textcolor{red}{The \space "Hidden" \pace Variable:}$ The "hidden" information is the component assignment for each data point. We don't directly observe this.
+- $\textcolor{red}{The \space "Hidden" \space Variable:}$ The "hidden" information is the component assignment for each data point. We don't directly observe this.
 - $\textcolor{red}{Initialization:}$ Iterative Steps: Start with some initial guesses for $$\pi_k$$, $$\mu_k$$, $$\Sigma_k$$ (e.g., random, or using k-means clustering to find initial centroids).
 - $\textcolor{red}{E-step \space (Expectation \space Step):}$ ssuming the current parameters are correct, calculate the "responsibility" (or posterior probability) that each component k has for generating each data point $$z_n$$ -
 
@@ -142,53 +142,51 @@ This step essentially quantifies "how much" each data point belongs to each clus
   - $\textcolor{green}{Improve \space Stability:}$ It helps stabilize the EM algorithm, especially in early iterations or with problematic data.
 
 
-*5. Conditional GMM for Prediction*
-Once the GMM parameters ($$\pi_k$$, $$\mu_k$$, $$\Sigma_k$$) are learned from the training data, we can use them to make predictions for new, unseen feature vectors X_new.
+*5. Conditional GMM for Prediction-*
+- Once the GMM parameters ($$\pi_k$$, $$\mu_k$$, $$\Sigma_k$$) are learned from the training data, we can use them to make predictions for new, unseen feature vectors $$X_new$$. The key here is using the properties of multivariate Gaussian distributions:
+  - $\textcolor{red}{Partitioning \space the \space Mean \space and \space Covariance:}$ Each component's mean $$\mu_k$$ and covarience $$\Sigma_k$$ are partitioned into        parts corresponding to features (x) and the target (y). Let
 
-The key here is using the properties of multivariate Gaussian distributions:
-- $\textcolor{red}{Partitioning \space the \space Mean \space and \space Covariance:}$ Each component's mean $$\mu_k$$ and covarience $$\Sigma_k$$ are partitioned into parts corresponding to features (x) and the target (y). Let
+    $$
+    z = \begin{bmatrix} x \\ y \end{bmatrix}
+    $$
 
-$$
-z = \begin{bmatrix} x \\ y \end{bmatrix}
-$$
+     Then for each component \( k \):
 
-  Then for each component \( k \):
+     $$
+     \mu_k = \begin{bmatrix} \mu_x^{(k)} \\ \mu_y^{(k)} \end{bmatrix}
+     $$
 
-$$
-\mu_k = \begin{bmatrix} \mu_x^{(k)} \\ \mu_y^{(k)} \end{bmatrix}
-$$
+     where
 
-where
+     $$\( \mu_x^{(k)} \) is \( D \times 1 \), \space \( \mu_y^{(k)} \) is \( 1 \times 1 \) $$
 
-- $$\( \mu_x^{(k)} \) is \( D \times 1 \), \space \( \mu_y^{(k)} \) is \( 1 \times 1 \) $$
+  - $\textcolor{red}{The \space covariance \space matrix:}$
 
-And the $\textcolor{red}{covariance \space matrix:}$
+    $$
+    \Sigma_k = \begin{bmatrix}
+    \Sigma_{xx}^{(k)} & \Sigma_{xy}^{(k)} \\
+    \Sigma_{yx}^{(k)} & \Sigma_{yy}^{(k)}
+    \end{bmatrix}
+    $$
 
-$$
-\Sigma_k = \begin{bmatrix}
-\Sigma_{xx}^{(k)} & \Sigma_{xy}^{(k)} \\
-\Sigma_{yx}^{(k)} & \Sigma_{yy}^{(k)}
-\end{bmatrix}
-$$
-
-where
-- $$\Sigma_{xx}^{(k)} is \(D \times D\), \space \Sigma_{xy}^{(k)} is \(D \times 1\), \space \Sigma_{yx}^{(k)} is \(1 \times D\), \space \Sigma_{yy}^{(k)} is \(1 \times 1\)$$  
+    where
+    $$\Sigma_{xx}^{(k)} is \(D \times D\), \space \Sigma_{xy}^{(k)} is \(D \times 1\), \space \Sigma_{yx}^{(k)} is \(1 \times D\), \space \Sigma_{yy}^{(k)} is \(1 \times        1\)$$  
 
 
-- $\textcolor{red}{Conditional \space Gaussian \space Properties:}$ If a joint distribution p(x,y) is Gaussian, then the conditional distribution p(y∣x) is also Gaussian, with:
-  - $\textcolor{red}{Conditional \space Mean:}$
+- $\textcolor{red}{Conditional \space Gaussian \space Properties:}$ If a joint distribution p(x,y) is Gaussian, then the conditional distribution p(y∣x) is also Gaussian,      with:
+  - $\textcolor{red}{Conditional \space Mean}$ :
 
      $$
      \mu_{y \mid x}^{(k)} = \mu_y^{(k)} + \Sigma_{yx}^{(k)} \left( \Sigma_{xx}^{(k)} \right)^{-1} (x - \mu_x^{(k)})
      $$
 
-  - $\textcolor{red}{Conditional \space Variance:}$ 
+  - $\textcolor{red}{Conditional \space Variance}$ : 
 
      $$
      \Sigma_{yy \mid x}^{(k)} = \Sigma_{yy}^{(k)} - \Sigma_{yx}^{(k)} \left( \Sigma_{xx}^{(k)} \right)^{-1} \Sigma_{xy}^{(k)}
      $$
 
-  - $\textcolor{red}{Prediction \space for \space the \space GMM:}$ Since the overall GMM is a mixture of Gaussians, the conditional distribution p(Y∣x) is also a mixture of       Gaussians.
+  - $\textcolor{red}{Prediction \space for \space the \space GMM:}$ Since the overall GMM is a mixture of Gaussians, the conditional distribution p(Y∣x) is also a mixture of       Gaussians,
   
      $$
      p(Y \mid x) = \sum_{k=1}^{K} \hat{\pi}_k(x) \, \mathcal{N}\left(Y \mid \mu_{y \mid x}^{(k)}, \Sigma_{yy \mid x}^{(k)}\right)
