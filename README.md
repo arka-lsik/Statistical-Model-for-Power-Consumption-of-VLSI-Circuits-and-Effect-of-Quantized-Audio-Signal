@@ -180,9 +180,10 @@ $$\( \mu_x^{(k)} \) is \( D \times 1 \), \space \( \mu_y^{(k)} \) is \( 1 \times
 
    - $\textcolor{red}{Prediction \space for \space GMM}$: Since the overall GMM is a mixture of Gaussians, the conditional distribution p(Y∣x) is also a mixture of Gaussians
      
-     $$
-     p(Y \mid x) = \sum_{k=1}^{K} \hat{\pi}_k(x)\,\mathcal{N}\!\left(Y \mid \mu_{y \mid x}^{(k)}, \Sigma_{yy \mid x}^{(k)}\right)
-     $$
+    $$
+p(Y \mid x) = \sum_{k=1}^{K} \hat{\pi}_k(x)\,\mathcal{N}\!\left(Y \mid \mu_{y \mid x}^{(k)}, \Sigma_{yy \mid x}^{(k)}\right)
+$$
+
      
      Where $$\hat{\pi}_k(x)$$ is the posterior probability of component k given observation x 
 
@@ -195,14 +196,16 @@ calculating these posterior probabilities $$\hat{\pi}_k(x)$$,
   - $\textcolor{red}{My \space prediction:}$ $$(Y_{pred})$$ To get a single point prediction for Y given x, calculates the expected value of Y given x, which is the weighted average of the conditional means from each component
 
     $$
-    \mathbb{E}[Y \mid x] = \sum_{k=1}^{K} \hat{\pi}_k(x) \, \mu_{y \mid x}^{(k)}
-    $$
+\mathbb{E}[Y \mid x] = \sum_{k=1}^{K} \hat{\pi}_k(x) \, \mu_{y \mid x}^{(k)}
+$$
+
     
   - $\textcolor{red}{Uncertainty:}$ There attempts to calculate the variance of the prediction. For a GMM, the total conditional variance Var[Y∣x] is not simply the weighted      average of $$\Sigma_{yy \mid x}^{(k)}$$, It needs to account for both the variance within each component's conditional distribution and the variance between the             conditional means of the different components. The correct formula for the variance of a mixture is
 
     $$
-   \mathrm{Var}[Y \mid x] = \sum_{k=1}^{K} \hat{\pi}_k(x) \left( \Sigma_{yy \mid x}^{(k)} + \big( \mu_{y \mid x}^{(k)} - \mathbb{E}[Y \mid x] \big)^2 \right)
-    $$
+\mathrm{Var}[Y \mid x] = \sum_{k=1}^{K} \hat{\pi}_k(x) \left( \Sigma_{yy \mid x}^{(k)} + \big( \mu_{y \mid x}^{(k)} - \mathbb{E}[Y \mid x] \big)^2 \right)
+$$
+
 
     This allows me to estimate not just the predicted power but also its associated uncertainty.
 
