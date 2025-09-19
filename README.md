@@ -267,7 +267,7 @@ $\textcolor{red}{General \space Discussion \space about \space data}$
   -  0x73 DP SPEC: instructions speculatively executed, integer data processing
   -  0x14 L1I CACHE ACCESS: level 1 instruction cache accesses
   -  0x19 BUS ACCESS: bus accesses
-- For this work I consider 5 sets of events 0x11, Ox1b, 0x50, 0x14, 0x19.
+- For this work I consider 5 sets of events 0x11, 0x1b, 0x50, 0x14, 0x19.
 - Here in the dataset there are 2160 rows of workloads, with 8 features (frquency, Core count, voltage, five Events activity).
 - Let discuss the results:
 - The GMM power prediction results with K=7 show that the predicted values align closely with the true power values along the diagonal line, indicating good model performance overall. At lower power levels (0–2 W), predictions are highly accurate with minimal spread, while at higher power levels (above ~2 W) the variance increases and some deviations from the diagonal appear, showing reduced accuracy. The clustering captures different regions of the data effectively, but the results suggest the model performs best for low-to-moderate power ranges and could benefit from refinement or additional data to improve predictions at higher power outputs.
@@ -284,6 +284,7 @@ $\textcolor{red}{General \space Discussion \space about \space data}$
 
 
 ## 🔍 **Links to be visited for more details**
+ For detailed Theory,Literature Survey, Mathematics, Please visit my *Master's Thesis PDF*[Link](https://drive.google.com/drive/folders/1U_O50OhLvYyswf1Ef5FHRn-KYWHdfvlK?usp=sharing)
  ## 🌟 **Acknowledgments**
  - This work began about 1.2 years ago with a very simple idea inspired by Information Theory.
  - My curiosity and enthusiasm for the VLSI design process encouraged me to explore this direction further.
