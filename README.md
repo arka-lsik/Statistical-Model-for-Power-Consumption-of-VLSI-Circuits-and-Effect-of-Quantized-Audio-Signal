@@ -253,7 +253,7 @@ K=5, indicating it favors a slightly more complex model. Overall, BIC prefers th
 
 🖼️ **Results and Discussions 2**
 As I said the previous dataset is Old and with small quantites data of data samples, there may be some limitations to judge this model perfomance at industry level. So to experiment more on this model I taken Another Dataset [Link](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Power-Estimation-of-VLSI-circuits/ARM-A15%20CPU%20dataset%20PATMOS'17.csv).
-$\textcolor{red}{General \space Discussion \space about \data}$
+$\textcolor{red}{General \space Discussion \space about \space data}$
 - This data is taken out from *PATMOS'17* conference, The power measurement samples collected from power sensor  built into the ODROID-XU3 platform, which contains an
  Exynos-5422 SoC with a quad-core ARM Cortex-A7 CPU cluster and a quad-core ARM Cortex-A15 CPU cluster.
 - Both types of CPU share the same instruction-set architecture (ISA) but are optimised for different energy/performance design points.
@@ -271,10 +271,13 @@ $\textcolor{red}{General \space Discussion \space about \data}$
 - Here in the dataset there are 2160 rows of workloads, with 8 features (frquency, Core count, voltage, five Events activity).
 - Let discuss the results:
 - The GMM power prediction results with K=7 show that the predicted values align closely with the true power values along the diagonal line, indicating good model performance overall. At lower power levels (0–2 W), predictions are highly accurate with minimal spread, while at higher power levels (above ~2 W) the variance increases and some deviations from the diagonal appear, showing reduced accuracy. The clustering captures different regions of the data effectively, but the results suggest the model performs best for low-to-moderate power ranges and could benefit from refinement or additional data to improve predictions at higher power outputs.
+  
   ![Fig11](Power-Estimation-of-VLSI-circuits/Fig22.png)
 -  The plot shows the Bayesian Information Criterion (BIC) values for different numbers of components K in the GMM model. The BIC decreases sharply from K=1 to K=4, indicating significant improvement in model fit. After K=4, the reduction in BIC becomes more gradual, with the lowest value observed around K=7, suggesting that a 7-component model offers the best trade-off between model complexity and fit quality.
+  
  ![Fig11](Power-Estimation-of-VLSI-circuits/Fig11.png)
 - The histogram shows the distribution of prediction errors for the GMM model. Most errors are centered around zero, with a sharp peak indicating that the majority of predictions are very close to the true values. The error spread is narrow, with only a few larger deviations extending beyond ±1 W. This suggests that the GMM model provides accurate and consistent predictions, with only occasional outliers.
+  
   ![Fig11](Power-Estimation-of-VLSI-circuits/Fig33.png)
 
 
