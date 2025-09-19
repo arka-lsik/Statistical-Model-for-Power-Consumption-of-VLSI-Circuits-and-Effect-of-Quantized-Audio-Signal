@@ -253,7 +253,7 @@ K=5, indicating it favors a slightly more complex model. Overall, BIC prefers th
 
 🖼️ **Results and Discussions 2**
 As I said the previous dataset is Old and with small quantites data of data samples, there may be some limitations to judge this model perfomance at industry level. So to experiment more on this model I taken Another Dataset [Link](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Power-Estimation-of-VLSI-circuits/ARM-A15%20CPU%20dataset%20PATMOS'17.csv).
-$\textcolor{red}{General \space Discussion \space about \data}
+$\textcolor{red}{General \space Discussion \space about \data}$
 - This data is taken out from *PATMOS'17* conference, The power measurement samples collected from power sensor  built into the ODROID-XU3 platform, which contains an
  Exynos-5422 SoC with a quad-core ARM Cortex-A7 CPU cluster and a quad-core ARM Cortex-A15 CPU cluster.
 - Both types of CPU share the same instruction-set architecture (ISA) but are optimised for different energy/performance design points.
