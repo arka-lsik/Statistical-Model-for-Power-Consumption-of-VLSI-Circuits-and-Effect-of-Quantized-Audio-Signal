@@ -14,15 +14,15 @@ This study explores how the noise came and average distortion is generate at det
 - This becomes critical when quantized data is further used for downstream tasks such as clustering, where the distortion can significantly affect the final results.
 - The Expectation-Maximization (EM) algorithm has been found to help mitigate the negative effects of quantization in clustering tasks, improving the robustness of data representation.
 
-● $\textcolor{red}{Research \space Shift \space Towards \space VLSI \space Circuit \space Analysis \space for \space Power-Aware \space Design}$:
+● $\textcolor{red}{Research \space Shift \space Towards \space VLSI \space Circuit \space Analysis \space for \space Power \space Aware \space Design}$:
 - Initial focus was on Audio signal processing and quantization impact reduction through clustering-based pipelines.
 - Current research direction shifted toward a more impactful area: Circuit Analysis in VLSI Design flow.
 - The main goal is to estimate and model pre-microarchitectural data to support power-aware design.
 - This approach aims to reduce costly redesigns and improve timing efficiency by providing accurate early-stage power and performance estimations.
 
 🚀 **Framework**
-- Part 1: Is to choose the proper quantizer and its effect of quantization on GMM-based data model and applying EM algorithm on it for better clustering of recorded audio from different environment.
-- Part 2: That’s GMM (for better result conditional GMM) and EM algorithm have a better impact of clustering and prediction on ”ISCAS’89 sequential Benchmark circuits”
+- $\textcolor{yellow}{Part-1}$: Is to choose the proper quantizer and its effect of quantization on GMM-based data model and applying EM algorithm on it for better clustering of recorded audio from different environment.
+- $\textcolor{yellow}{Part-2}$: That’s GMM (for better result conditional GMM) and EM algorithm have a better impact of clustering and prediction on ”ISCAS’89 sequential Benchmark circuits”
 data & "PATMOS'17"  quad-core ARM Cortex A15 CPU data for differernt events of activity.
 
 ## 📝 **Details of Algorithm Pipeline for Audio processing with effect of Quantization**
@@ -52,17 +52,17 @@ All the resullts are refering from uploaded $\textcolor{blue}{Results \space A-t
 
 🎯**Particular problems I am foucusing**
 
-With the advancements in $\textcolor{green}{VLSI \space technology}$, it is now possible to integrate millions of transistors into a single chip. However,increasing the count of transistors and operating frequencies leads to a significant rise in power consumption. This has emerged as a critical issue, especially in submicron technologies. Therefore, $\textcolor{yellow}{accurate \space power \space estimation \space during \space the \space early \space stages \space of \space VLSI \space circuit \space design \space is \space essential}$, as power consumption greatly affects the overall reliability and performance of the system and redesign time or power optimizing cost at RTL, Algorithmic or Architectural level.
+With the advancements in $\textcolor{green}{VLSI \space Technology}$, it is now possible to integrate millions or billions of transistors into a single chip. However,increasing the count of transistors and operating frequencies leads to a significant rise in power consumption. This has emerged as a critical issue, especially in submicron technologies. Therefore, $\textcolor{yellow}{accurate \space power \space estimation \space during \space the \space early \space stages \space of \space VLSI \space circuit \space design \space is \space essential}$, as power consumption greatly affects the overall reliability, can reduce performance of the system and increase redesign time or power optimizing cost at RTL, Algorithmic or Architectural level of any ASICs/FPGA design.
 
 🚀 **Data set I work for**
 
-For power estimation I worked with my model on two dataset. The Simple one(first one) by visiting this [Link](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Power-Estimation-of-VLSI-circuits/power%20consumption%20of%20ISCAS89%20benchmark%20circuits.csv) you can observe.
+For power estimation I worked with my model on two dataset. The Simple one (first) by visiting this [Link](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Power-Estimation-of-VLSI-circuits/power%20consumption%20of%20ISCAS89%20benchmark%20circuits.csv) you can observe.
 - This dataset I taken form $\textcolor{red}{ISCAS'89}$ conference which contains of 20 different bench mark sequential circuits.
-- The every benchmark sequential logic is made with various logic gates as a load like NOR, NAND, NOT etc. So total 9 input features.
+- Every benchmark sequential logic is made with various logic gates as a load like NOR, NAND, NOT etc. So total 9 input features.
 - At end column its given the Mc(Monte Carlo) in mw simulted power. I have to estimate as close as possible.
 
-As this datset [Link]() is Old and with small quantites data values there may be a industry limitation to judge this model perfomance. 
-- So next I found the another dataset form $\textcolor{red}{PATMOS'17}$ conference.
+As this previous one dataset is Old and with small quantites data of data samples, there may be some limitations to judge this model perfomance at industry level. 
+- So next I found the another dataset form $\textcolor{red}{PATMOS'17}$ [Link](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Power-Estimation-of-VLSI-circuits/ARM-A15%20CPU%20dataset%20PATMOS'17.csv) conference.
 - Consider Odorid-XU3 for this work, which contains an Exynos-5422 SoC with a quad-core ARM Cortex-A7 CPU cluster and a quad-core ARM Cortex-A15 CPU cluster.
 - Both types of CPU share the same instruction-set architecture (ISA) but are optimised for different energy/performance design.
 - The power measurements data (in the sheet represented) were collected from power sensors built into the ODROID-XU3 platform.
@@ -70,7 +70,7 @@ As this datset [Link]() is Old and with small quantites data values there may be
 
 🎯 **Model Mathematical Descriptions**
 
-The core idea is to model the joint distribution of input features $\textcolor{green}{(X)}$ and target variable $\textcolor{green}{(Y)}$ using a mixture of Gaussian distributions, and then use this joint model to predict $\textcolor{green}{Y \space given \space X}$. Let's break down the mathematics for 1st case of dataset- 
+The core idea is to model the joint distribution of input features $\textcolor{green}{(X)}$ and target variable $\textcolor{green}{(Y)}$ using a mixture of Gaussian distributions, and then use this joint model to predict $\textcolor{green}{Y \space given \space X}$. Let's break down the mathematics for $\textcolor{green}{1st \space case}$ of dataset- 
 
 *1. The Regression Problem Setup*
 - $\textcolor{red}{Features (X):}$ These are input variables (e.g., GATE, AND, INV counts). X is an N×D matrix, where N is the number of data points and D=9 is the number of features.
@@ -78,7 +78,7 @@ The core idea is to model the joint distribution of input features $\textcolor{g
 - $\textcolor{red}{Goal:}$ To learn a function f(X)→Y such that for a new circuit with features x, we can predict its power consumption y.
 
 *2. Data Preprocessing: Normalization (Z-score Standardization)*
-- $\textcolor{red}{Purpose:}$ Scale Invariance: Prevents features with larger numerical ranges from disproportionately influencing the model. If 'GATE' count ranges from 10 to 1000 and 'INV' count from 1 to 10, 'GATE' would dominate calculations without scaling.
+- $\textcolor{red}{Purpose:}$ (Scale Invariance) Prevents features with larger numerical ranges from disproportionately influencing the model. If 'GATE' count ranges from 10 to 1000 and 'INV' count from 1 to 10, 'GATE' would dominate calculations without scaling.
 - $\textcolor{red}{Improved \space Convergence \space for \space EM:}$ Many iterative optimization algorithms (like EM for GMMs) converge faster and more reliably when features are on a similar scale. So this a necessary steps.
 - $\textcolor{red}{For \space each \space feature \space (column) \space in \space X \space and \space for \space Y:}$
   The equations are:
@@ -233,8 +233,8 @@ $$
 - $R^2 < 0$: The model is worse than simply predicting the mean.
 
 
-🖼️ **Results and Discusiions**
-Lets conclude with the results part discussion brifely. The discusiion of this below figures are coming out on the experiment of 1st data set.
+🖼️ **Results and Discussions 1**
+Lets conclude with the results part discussion brifely. The discussion of this below figures are coming out on the experiment of $\textcolor{green}}{1st \space dataset}$.
 - The $\textcolor{red}{Fig1}$ orange line represents the linear power trend derived from the Monte Carlo–simulated power data (in mW). The blue markers indicate the estimated power data samples.
 ![Fig1](Power-Estimation-of-VLSI-circuits/Fig1.png)
 - $\textcolor{red}{Fig2}$ The histogram of prediction errors shows how frequently different error values occur when comparing the predicted power to the actual power. The errors range from about –0.02 mW to +0.06 mW, where negative values indicate overestimation and positive values indicate underestimation. Most of the errors are concentrated close to zero, particularly between 0 and 0.02 mW, which suggests that the model is generally accurate. A smaller number of samples fall into the negative error range (around –0.02 mW), while a few extend into larger positive errors (0.05–0.06 mW). This pattern indicates that the model has a slight bias toward underestimating the true power, though the overall spread of errors is small, demonstrating consistent performance. Overall, the distribution confirms that the model makes reliable predictions with only minor deviations around the true values.
@@ -242,13 +242,40 @@ Lets conclude with the results part discussion brifely. The discusiion of this b
 - $\textcolor{red}{Fig3}$ The plot compares AIC and BIC scores for different model sizes K, where lower values indicate a better balance between accuracy and complexity. Both criteria drop sharply at K=2, showing that a two-component model is a clear improvement over a single one. BIC reaches its lowest point at K=2, suggesting it as the optimal choice, while AIC continues to decrease slightly for K=4 and 
 K=5, indicating it favors a slightly more complex model. Overall, BIC prefers the simpler two-component model, while AIC allows for a bit more complexity. SO right thinking of choice will se when we clusterd results Later.
 ![Fig3](Power-Estimation-of-VLSI-circuits/Fig3.png)
-- $\textcolor{red}{Fig4 \space Fig5 \space Fig6\}$ showed the exact estimation accuracy in terms of *Evaluation Matrix* called *MAE(Mean Absolute Error*, *RMSE(Root Mean Square Error* and *R-Squared model fit* in histogram format and also presented the campariablity betwwen different models (eg. LR, RF, NN etc. ) for understanding.
+- $\textcolor{red}{Fig4 \space Fig5 \space Fig6\}$ showed the exact estimation accuracy in terms of *Evaluation Matrix* called *MAE(Mean Absolute Error*, *RMSE(Root Mean Square Error* and *R-Squared model fit* in histogram format and also presented the campariablity betwwen different models (eg. LR, RF, NN etc. ) for understanding. By visiting this [Link](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Power-Estimation-of-VLSI-circuits/ResultsDataset1.csv), you can observe the exact values I got in every cases for different evaluation metrices.
 ![Fig4](Power-Estimation-of-VLSI-circuits/Fig5.png)
 ![Fig5](Power-Estimation-of-VLSI-circuits/Fig6.png)
 ![Fig6](Power-Estimation-of-VLSI-circuits/Fig7.png)
+![Fig8](Power-Estimation-of-VLSI-circuits/ResultsDataset1.csv)
+
 - $\textcolor{red}{Fig7}$ lastly shown in the fromat of clusterd way estimation of power samples from 20 sequenctial benchmark circits. earlier AIC/BIC plot suggested K=2 is the optimal choice (because BIC penalizes complexity more strongly), here the model has been fitted with K=3. That’s why the scatter plot is labeled with three distinct clusters.
 ![Fig7](Power-Estimation-of-VLSI-circuits/Fig8.png)
 
+🖼️ **Results and Discussions 2**
+As I said the previous dataset is Old and with small quantites data of data samples, there may be some limitations to judge this model perfomance at industry level. So to experiment more on this model I taken Another Dataset [Link](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Power-Estimation-of-VLSI-circuits/ARM-A15%20CPU%20dataset%20PATMOS'17.csv).
+$\textcolor{red}{General \space Discussion \space about \data}
+- This data is taken out from *PATMOS'17* conference, The power measurement samples collected from power sensor  built into the ODROID-XU3 platform, which contains an
+ Exynos-5422 SoC with a quad-core ARM Cortex-A7 CPU cluster and a quad-core ARM Cortex-A15 CPU cluster.
+- Both types of CPU share the same instruction-set architecture (ISA) but are optimised for different energy/performance design points.
+- This workconsiders only the higher performance Cortex-A15 cluster. The four Cortex-A15 CPUs each have 32 KB instruction and data caches, and share a 2 MB L2-cache.
+- The clock frequency of the Cortex-A15 cluster ranges from 200 MHz to 2 GHz. The SoC also has 2 GB LPDDR3 RAM.
+- The Cortex-A15 power models use the following seven PMCs(power Manegment cells):
+  -  0x11 CYCLE COUNT: active CPU cycles
+  -  0x1B INST SPEC: instructions speculatively executed
+  -  0x50 L2D CACHE LD: level 2 data cache accesses read
+  -  0x6A UNALIGNED LDST SPEC: unaligned accesses
+  -  0x73 DP SPEC: instructions speculatively executed, integer data processing
+  -  0x14 L1I CACHE ACCESS: level 1 instruction cache accesses
+  -  0x19 BUS ACCESS: bus accesses
+- For this work I consider 5 sets of events 0x11, Ox1b, 0x50, 0x14, 0x19.
+- Here in the dataset there are 2160 rows of workloads, with 8 features (frquency, Core count, voltage, five Events activity).
+- Let discuss the results:
+- The GMM power prediction results with K=7 show that the predicted values align closely with the true power values along the diagonal line, indicating good model performance overall. At lower power levels (0–2 W), predictions are highly accurate with minimal spread, while at higher power levels (above ~2 W) the variance increases and some deviations from the diagonal appear, showing reduced accuracy. The clustering captures different regions of the data effectively, but the results suggest the model performs best for low-to-moderate power ranges and could benefit from refinement or additional data to improve predictions at higher power outputs.
+  ![Fig11](Power-Estimation-of-VLSI-circuits/Fig22.png)
+-  The plot shows the Bayesian Information Criterion (BIC) values for different numbers of components K in the GMM model. The BIC decreases sharply from K=1 to K=4, indicating significant improvement in model fit. After K=4, the reduction in BIC becomes more gradual, with the lowest value observed around K=7, suggesting that a 7-component model offers the best trade-off between model complexity and fit quality.
+ ![Fig11](Power-Estimation-of-VLSI-circuits/Fig11.png)
+- The histogram shows the distribution of prediction errors for the GMM model. Most errors are centered around zero, with a sharp peak indicating that the majority of predictions are very close to the true values. The error spread is narrow, with only a few larger deviations extending beyond ±1 W. This suggests that the GMM model provides accurate and consistent predictions, with only occasional outliers.
+  ![Fig11](Power-Estimation-of-VLSI-circuits/Fig33.png)
 
 
 
