@@ -234,7 +234,7 @@ $$
 
 
 🖼️ **Results and Discussions 1**
-Lets conclude with the results part discussion brifely. The discussion of this below figures are coming out on the experiment of $\textcolor{green}}{1st \space dataset}$.
+Lets conclude with the results part discussion brifely. The discussion of this below figures are coming out on the experiment of $\textcolor{green}{1st \space dataset}$.
 - The $\textcolor{red}{Fig1}$ orange line represents the linear power trend derived from the Monte Carlo–simulated power data (in mW). The blue markers indicate the estimated power data samples.
 ![Fig1](Power-Estimation-of-VLSI-circuits/Fig1.png)
 - $\textcolor{red}{Fig2}$ The histogram of prediction errors shows how frequently different error values occur when comparing the predicted power to the actual power. The errors range from about –0.02 mW to +0.06 mW, where negative values indicate overestimation and positive values indicate underestimation. Most of the errors are concentrated close to zero, particularly between 0 and 0.02 mW, which suggests that the model is generally accurate. A smaller number of samples fall into the negative error range (around –0.02 mW), while a few extend into larger positive errors (0.05–0.06 mW). This pattern indicates that the model has a slight bias toward underestimating the true power, though the overall spread of errors is small, demonstrating consistent performance. Overall, the distribution confirms that the model makes reliable predictions with only minor deviations around the true values.
@@ -246,20 +246,21 @@ K=5, indicating it favors a slightly more complex model. Overall, BIC prefers th
 ![Fig4](Power-Estimation-of-VLSI-circuits/Fig5.png)
 ![Fig5](Power-Estimation-of-VLSI-circuits/Fig6.png)
 ![Fig6](Power-Estimation-of-VLSI-circuits/Fig7.png)
-![Fig8](Power-Estimation-of-VLSI-circuits/ResultsDataset1.csv)
+![CSV Preview](Power-Estimation-of-VLSI-circuits/ResultsDataset1.csv)
 
 - $\textcolor{red}{Fig7}$ lastly shown in the fromat of clusterd way estimation of power samples from 20 sequenctial benchmark circits. earlier AIC/BIC plot suggested K=2 is the optimal choice (because BIC penalizes complexity more strongly), here the model has been fitted with K=3. That’s why the scatter plot is labeled with three distinct clusters.
 ![Fig7](Power-Estimation-of-VLSI-circuits/Fig8.png)
 
-🖼️ **Results and Discussions 2**
+🖼️ **Results and Discussions 2**  
+
 As I said the previous dataset is Old and with small quantites data of data samples, there may be some limitations to judge this model perfomance at industry level. So to experiment more on this model I taken Another Dataset [Link](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Power-Estimation-of-VLSI-circuits/ARM-A15%20CPU%20dataset%20PATMOS'17.csv).
 $\textcolor{red}{General \space Discussion \space about \space data}$
 - This data is taken out from *PATMOS'17* conference, The power measurement samples collected from power sensor  built into the ODROID-XU3 platform, which contains an
  Exynos-5422 SoC with a quad-core ARM Cortex-A7 CPU cluster and a quad-core ARM Cortex-A15 CPU cluster.
 - Both types of CPU share the same instruction-set architecture (ISA) but are optimised for different energy/performance design points.
-- This workconsiders only the higher performance Cortex-A15 cluster. The four Cortex-A15 CPUs each have 32 KB instruction and data caches, and share a 2 MB L2-cache.
+- This work considers only the higher performance Cortex-A15 cluster. The four Cortex-A15 CPUs each have 32 KB instruction and data caches, and share a 2 MB L2-cache.
 - The clock frequency of the Cortex-A15 cluster ranges from 200 MHz to 2 GHz. The SoC also has 2 GB LPDDR3 RAM.
-- The Cortex-A15 power models use the following seven PMCs(power Manegment cells):
+- The Cortex-A15 power models use the following seven PMCs (power Manegment cells):
   -  0x11 CYCLE COUNT: active CPU cycles
   -  0x1B INST SPEC: instructions speculatively executed
   -  0x50 L2D CACHE LD: level 2 data cache accesses read
@@ -284,7 +285,7 @@ $\textcolor{red}{General \space Discussion \space about \space data}$
 
 
 ## 🔍 **Links to be visited for more details**
- For detailed Theory,Literature Survey, Mathematics, Please visit my *Master's Thesis PDF*[Link](https://drive.google.com/drive/folders/1U_O50OhLvYyswf1Ef5FHRn-KYWHdfvlK?usp=sharing)
+ For detailed Theory,Literature Survey, Mathematics, Please visit my *Master's Thesis PDF *[Link](https://drive.google.com/drive/folders/1U_O50OhLvYyswf1Ef5FHRn-KYWHdfvlK?usp=sharing)
  ## 🌟 **Acknowledgments**
  - This work began about 1.2 years ago with a very simple idea inspired by Information Theory.
  - My curiosity and enthusiasm for the VLSI design process encouraged me to explore this direction further.
@@ -296,7 +297,7 @@ $\textcolor{red}{General \space Discussion \space about \space data}$
  - I also thank the Department of Electronics and Electrical Communication Engineering, IIT Kharagpur, and my generous friends who supported me through discussions in the lab, classroom, and even during tea breaks at the canteen.
  - Finally, I feel fortunate that this journey has helped me grow intellectually and progress toward more complex and meaningful thinking.
 
-## ⭐ **If you find this project helpful, feel free to star the repo and share your feedback!** ⭐
+## ⭐ **Thanks for reading with patience, If you find this project some insightful idea of reserch towords new technology node, feel free to star the repo and share your feedback!** ⭐
 
 
 
