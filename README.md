@@ -50,7 +50,7 @@ All the resullts are refering from uploaded $\textcolor{blue}{Results \space A-t
 
 ![Workflow thinking process step by step](Power-Estimation-of-VLSI-circuits/PE.png)    
 
-🎯**Particular problems I am foucusing**
+🎯**Particular problems I am focusing**
 
 With the advancements in $\textcolor{green}{VLSI \space Technology}$, it is now possible to integrate millions or billions of transistors into a single chip. However,increasing the count of transistors and operating frequencies leads to a significant rise in power consumption. This has emerged as a critical issue, especially in submicron technologies. Therefore, $\textcolor{yellow}{accurate \space power \space estimation \space during \space the \space early \space stages \space of \space VLSI \space circuit \space design \space is \space essential}$, as power consumption greatly affects the overall reliability, can reduce performance of the system and increase redesign time or power optimizing cost at RTL, Algorithmic or Architectural level of any ASICs/FPGA design.
 
