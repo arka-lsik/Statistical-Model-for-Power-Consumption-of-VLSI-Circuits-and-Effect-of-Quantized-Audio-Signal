@@ -61,7 +61,7 @@ For power estimation I worked with my model on two dataset. The Simple one (firs
 - Every benchmark sequential logic is made with various logic gates as a load like NOR, NAND, NOT etc. So total 9 input features.
 - At end column its given the Mc(Monte Carlo) in mw simulted power. I have to estimate as close as possible.
 
-As this previous one dataset is Old and with small quantites data of data samples, there may be some limitations to judge this model perfomance at industry level. 
+As this previous one dataset is Old and with small quantites data of data samples, there may be some limitations to judge this model performance at industry level. 
 - So next I found the another dataset form $\textcolor{red}{PATMOS'17}$ [Link](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Power-Estimation-of-VLSI-circuits/ARM-A15%20CPU%20dataset%20PATMOS'17.csv) conference.
 - Consider Odorid-XU3 for this work, which contains an Exynos-5422 SoC with a quad-core ARM Cortex-A7 CPU cluster and a quad-core ARM Cortex-A15 CPU cluster.
 - Both types of CPU share the same instruction-set architecture (ISA) but are optimised for different energy/performance design.
