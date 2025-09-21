@@ -252,6 +252,13 @@ $\textcolor{red}{General \space Discussion \space about \space data}$
   -  0x19 BUS ACCESS: bus accesses
 - For this work I consider 5 sets of events 0x11, 0x1b, 0x50, 0x14, 0x19.
 - Here in the dataset there are 2160 rows of workloads, with 8 features (frquency, Core count, voltage, five Events activity).
+- Before discuss results I just wanted to revisit some aspect related to how I thought for this case of dataset. Mathematical concepts is almost same,
+  
+   $$P_{\text{total}} \;=\; P_{\text{dyn}} \;+\; P_{\text{leak}}$$
+   $$P_{\text{dyn}} \;=\; \alpha \, C_{\text{eff}} \, V^2 \, f$$
+   $$P_{\text{leak}} \;=\; f(V, T, \text{process})$$
+   $$P_{\text{total}} \;=\; \alpha \, C_{\text{eff}} \, V^2 \, f \;+\; f(V, T, \text{process})$$
+  
 - Let discuss the results:
 - The GMM power prediction results with K=7 show that the predicted values align closely with the true power values along the diagonal line, indicating good model performance overall. At lower power levels (0–2 W), predictions are highly accurate with minimal spread, while at higher power levels (above ~2 W) the variance increases and some deviations from the diagonal appear, showing reduced accuracy. The clustering captures different regions of the data effectively, but the results suggest the model performs best for low-to-moderate power ranges and could benefit from refinement or additional data to improve predictions at higher power outputs.
   
