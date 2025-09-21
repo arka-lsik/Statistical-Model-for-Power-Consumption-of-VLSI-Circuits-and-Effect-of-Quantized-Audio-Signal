@@ -197,7 +197,7 @@ This allows estimating not just the predicted power but also its associated unce
   - BIC (Bayesian Information Criterion): $$k\ln(N) - 2\ln(\hat{L})$$
   - Interpretation: For both, lower values are better. They quantify the trade-off between model fit and complexity. BIC generally penalizes complexity more strongly, especially for larger datasets (N), leading to simpler models.
 
-*7. Evaluation Metrics*  
+*7. Evaluation Metrics*- 
 These metrics quantify how well your model's predictions $Y_{pred-test}$ match the actual $Y_{test}$ values on the unseen test data.
 - $\textcolor{red}{MAE \space (Mean \space Absolute \space error)}$: Average absolute difference between predicted and actual values. Easy to understand, robust to outliers. Units are the same as your target (mW): $\text{MAE} = \frac{1}{N_{\text{test}}} \sum_{i=1}^{N_{\text{test}}} \left| Y_{\text{test},i} - Y_{\text{pred},i} \right|$
 
@@ -224,6 +224,7 @@ Lets conclude with the results part discussion brifely. The discussion of this b
 K=5, indicating it favors a slightly more complex model. Overall, BIC prefers the simpler two-component model, while AIC allows for a bit more complexity. SO right thinking of choice will se when we clusterd results Later.
 ![Fig3](Power-Estimation-of-VLSI-circuits/Fig3.png)
 - $\textcolor{red}{Fig4 \space Fig5 \space Fig6\}$ showed the exact estimation accuracy in terms of *Evaluation Matrix* called *MAE(Mean Absolute Error*, *RMSE(Root Mean Square Error* and *R-Squared model fit* in histogram format and also presented the campariablity betwwen different models (eg. LR, RF, NN etc. ) for understanding. By visiting this [Link](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Power-Estimation-of-VLSI-circuits/ResultsDataset1.csv), you can observe the exact values I got in every cases for different evaluation metrices.
+  
 ![Fig4](Power-Estimation-of-VLSI-circuits/Fig5.png)
 ![Fig5](Power-Estimation-of-VLSI-circuits/Fig6.png)
 ![Fig6](Power-Estimation-of-VLSI-circuits/Fig7.png)
@@ -234,7 +235,7 @@ K=5, indicating it favors a slightly more complex model. Overall, BIC prefers th
 
 🖼️ **Results and Discussions 2**  
 
-As I said the previous dataset is Old and with small quantites data of data samples, there may be some limitations to judge this model perfomance at industry level. So to experiment more on this model I taken Another Dataset [Link](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Power-Estimation-of-VLSI-circuits/ARM-A15%20CPU%20dataset%20PATMOS'17.csv).
+As I said the previous dataset is old and with small quantites data of data samples, there may be some limitations to judge this model perfomance at industry level. So to experiment more on this model I taken Another Dataset [Link](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Power-Estimation-of-VLSI-circuits/ARM-A15%20CPU%20dataset%20PATMOS'17.csv).
 $\textcolor{red}{General \space Discussion \space about \space data}$
 - This data is taken out from *PATMOS'17* conference, The power measurement samples collected from power sensor  built into the ODROID-XU3 platform, which contains an
  Exynos-5422 SoC with a quad-core ARM Cortex-A7 CPU cluster and a quad-core ARM Cortex-A15 CPU cluster.
