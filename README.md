@@ -261,7 +261,7 @@ $\textcolor{red}{General \space Discussion \space about \space data}$
   
   - From data easily we can get feature like $\textcolor{red}{Voltage, Frequency}$, but what about $C_{eff}$ and $\alpha(activity factor)$?
   - So idea is to infer proxies that the dataset does contain (High Performance core) HPC's in form of $\textcolor{red}{events \space (EPH)}$. That event counter or rates for microarchitectural activity, these proxies means more event means more toggle or transitions means can be large $$\alpha$$.
-  - $$C_{eff}$$ can directly infer from core mask or $\textcolor{red}{core cunt}$.
+  - $$C_{eff}$$ can directly infer from core mask or $\textcolor{red}{core \space count}$.
 - Let discuss the results:
 - The GMM power prediction results with K=7 show that the predicted values align closely with the true power values along the diagonal line, indicating good model performance overall. At lower power levels (0–2 W), predictions are highly accurate with minimal spread, while at higher power levels (above ~2 W) the variance increases and some deviations from the diagonal appear, showing reduced accuracy. The clustering captures different regions of the data effectively, but the results suggest the model performs best for low-to-moderate power ranges and could benefit from refinement or additional data to improve predictions at higher power outputs.
   
@@ -285,7 +285,9 @@ To know for $\textcolor{green}{mathemtical \space foundation \space of \space th
 
 *Results Discussion*
 All the resullts are refering from uploaded $\textcolor{blue}{Results \space A-to-D}$ section here [Link](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/tree/main/Results%20A-to-D)
-- This $\textcolor{red}{two \space Picture}$ [Link1](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Synthetic%20Audio%20dataset/datasetpic1.png) & [Link2](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Synthetic%20Audio%20dataset/datasetpic2.png) represents the GMM signal as clustered form (top view) with thousand and ten thousand signal samples with the two different nature of dataset.
+- This $\textcolor{red}{two \space Picture}$ represents the GMM signal as clustered form (top view) with thousand and ten thousand signal samples with the two different nature of dataset.
+  ![Workflow thinking process step by step](Results%20A-to-D/datasetpic1.png)
+   ![Workflow thinking process step by step](Results%20A-to-D/datasetpic2.png)
 -  the impact of quantization at different levels was analyzed, revealing changes in the data values.
   - The $\textcolor{red}{Pic-1}$ [Link](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Results%20A-to-D/Pic-1.png) Probability Distribution Function estimated after Uniform Quantization with Audio Dataset1. Results showed Level of Quantization(L) with Quantization Support(n).
   - The $\textcolor{red}{Pic-2}$ [Link](https://github.com/arka-lsik/Statistical-Model-for-Power-Consumption-of-VLSI-Circuits-and-Effect-of-Quantized-Audio-Signal/blob/main/Results%20A-to-D/Pic-2.png) Probability Distribution Function estimated after Uniform Quantization with Audio Dataset2. Results showed Level of Quantization(L) with Quantization Support(n).
